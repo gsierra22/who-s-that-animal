@@ -15,12 +15,15 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserAnimals from '../UserAnimals/UserAnimals';
-import InfoPage from '../InfoPage/InfoPage';
+import MyPets from '../MyPets/MyPets';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import InputAnimals from '../InputPet/InputAnimals';
+import DeleteAnimals from '../DeleteAnimals/DeleteAnimals';
 
 import './App.css';
+import AnimalDetails from '../AnimalDetails/AnimalDetails';
 
 function App() {
   const dispatch = useDispatch();
@@ -61,11 +64,34 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/details"
           >
-            <InfoPage />
+            <AnimalDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyPets else shows LoginPage
+            exact
+            path="/input"
+          >
+            <InputAnimals/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserAnimals else shows LoginPage
+            exact
+            path="/delete"
+          >
+            <DeleteAnimals />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyPets else shows LoginPage
+            exact
+            path="/mypets"
+          >
+            <MyPets/>
           </ProtectedRoute>
 
           <Route

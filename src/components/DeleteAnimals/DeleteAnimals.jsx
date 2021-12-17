@@ -3,7 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
-function UserAnimals() {
+function DeleteAnimals() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {
     dispatch({ type: 'FETCH_ANIMALS' });
@@ -13,12 +13,9 @@ const dispatch = useDispatch();
   const animals=useSelector((store)=>store.animalsReducer)
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>{user.bio}</p>
-      <button ><Link to="/input">Input New Animal</Link></button>
-      <button ><Link to="/delete">Delete Animal</Link></button>
-      <LogOutButton className="btn" />
+      <h2>Are you sure you want to delete this animal?</h2>
+      <button ><Link to="/user">Yes</Link></button>
+      <button ><Link to="/user">No</Link></button>
       <p>{JSON.stringify(animals)}
       </p>
     </div>
@@ -26,4 +23,4 @@ const dispatch = useDispatch();
 }
 
 // this allows us to use <App /> in index.js
-export default UserAnimals;
+export default DeleteAnimals;
