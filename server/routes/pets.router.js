@@ -5,18 +5,20 @@ const router = express.Router();
 /**
  * GET route template
  */
- router.get('/', (req, res) => {
-
-  const query = `SELECT * FROM pets ORDER BY "id" ASC`;
-  pool.query(query)
-    .then( result => {
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all pets', err);
-      res.sendStatus(500)
-    })
-
+ router.get('/:id', (req, res) => {
+   console.log('hello')
+  console.log(req.query)
+  const queryText = ` SELECT "catdog", "missing", "description", "location", "date", "neighborhood", "photo" FROM "user"
+  JOIN "pets" ON "user".id=pets.user_id
+  WHERE "user".id=$1`;
+  pool.query(queryText, [req.params.id])
+  .then (result => {
+    res.send(result.rows);
+  })
+  .catch(err =>{
+    console.log('Unable to process request')
+    res.sendStatus(500)
+  })
 });
 
 /**

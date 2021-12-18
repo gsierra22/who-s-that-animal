@@ -5,7 +5,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* fetchAnimal(action) {
   // get all movies from the DB
   try {
-      const animals = yield axios.get('/api/animals');
+    console.log(action.payload)
+      const animals = yield axios.get(`/api/animals/${action.payload}`);
       console.log('get all:', animals.data);
       yield put({ type: 'SET_ANIMALS', payload: animals.data });
 
