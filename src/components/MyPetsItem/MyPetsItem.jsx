@@ -19,6 +19,7 @@ const pushList = () => {
     <div key={props.pet.id} >
         <h3>{props.pet.description}</h3>
         <img src={props.pet.photo} alt={props.pet.catdog} onClick={pushList} />
+        <button>Delete</button>
     </div>
 </div>
   );

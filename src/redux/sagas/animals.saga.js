@@ -16,8 +16,19 @@ function* fetchAnimal(action) {
       
 }
 
+function *postAnimal( action ){
+  console.log( 'in *postSaga:', action );
+  try {
+    const response = yield axios.post('/api/animals', action.payload);
+    yield put({type: 'FETCH_ANIMALS', payload: response.data})
+  } catch (err) {
+      console.log('error:', err);
+  }
+}
+
 function* AnimalSaga() {
   yield takeLatest('FETCH_ANIMALS', fetchAnimal);
+  yield takeLatest( 'ADD_ANIMALS', postAnimal );
 }
 
 export default AnimalSaga;

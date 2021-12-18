@@ -19,7 +19,7 @@ import MyPets from '../MyPets/MyPets';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import InputAnimals from '../InputPet/InputAnimals';
+import InputPet from '../InputPet/InputPet';
 import DeleteAnimals from '../DeleteAnimals/DeleteAnimals';
 
 import './App.css';
@@ -75,7 +75,7 @@ function App() {
             exact
             path="/input"
           >
-            <InputAnimals/>
+            <InputPet/>
           </ProtectedRoute>
 
           <ProtectedRoute
