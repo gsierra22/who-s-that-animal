@@ -10,7 +10,7 @@ const dispatch = useDispatch();
 
   let [newPet, setPet] = useState(
     {
-      catdog:'',
+      catdog: 0,
       missing:'',
       description:'',
       location:'',
@@ -66,6 +66,7 @@ const dispatch = useDispatch();
     setPet({...newPet, photo: event.target.value})
   }
 
+
   return (
     <div className="container">
       <h1>Add a new pet, {user.username}!</h1>
@@ -78,11 +79,10 @@ const dispatch = useDispatch();
                   </select>
                   <br/>
                 <label>Is your pet missing?</label>
-                {/* <select value={newPet.missing} placeholder='Missing' onChange={( event )=>handleNewMissing( event )}>
-                  <option value={1}>Yes</option>
-                  <option value={2}>No</option>
-                </select> */}
-                <input type='text' placeholder='Description' value={newPet.missing} onChange={handleNewMissing} />
+                <select value={newPet.missing} placeholder='Missing' onChange={( event )=>handleNewMissing( event )}>
+                  <option value={true}>Yes</option>
+                  <option value={false}>No</option>
+                </select>
                 <br/>
                 <label>Enter your pet's name and description</label>
                 <input type='text' placeholder='Description' value={newPet.description} onChange={handleNewDescription} />
@@ -97,8 +97,8 @@ const dispatch = useDispatch();
                 <input type='text' placeholder='Neighborhood' value={newPet.neighborhood} onChange={handleNewNeighborhood} />
                 <br/>
                 <label>Enter the pet's photo</label>
-                <input type='text' className="image" placeholder='Poster' value={newPet.photo} onChange={handleNewPhoto} />
-                <Link to="/mypets"><button onClick={addNewPet}>Save</button></Link>
+                <input type='text' className="image" placeholder='Photo' value={newPet.photo} onChange={handleNewPhoto} />
+                <Link to="/user"><button onClick={addNewPet}>Save</button></Link>
             </form>
       <button ><Link to="/user">Back</Link></button>
       <p>{JSON.stringify(animals)}

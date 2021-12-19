@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InputPet from '../InputPet/InputPet';
 import DeleteAnimals from '../DeleteAnimals/DeleteAnimals';
+import AllAnimals from '../AllAnimals/AllAnimals';
 
 import './App.css';
 import AnimalDetails from '../AnimalDetails/AnimalDetails';
@@ -92,6 +93,14 @@ function App() {
             path="/mypets"
           >
             <MyPets/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyPets else shows LoginPage
+            exact
+            path="/all"
+          >
+            <AllAnimals/>
           </ProtectedRoute>
 
           <Route

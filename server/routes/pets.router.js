@@ -5,10 +5,10 @@ const router = express.Router();
 /**
  * GET route template
  */
- router.get('/:id', (req, res) => {
+ router.get('/mypets/:id', (req, res) => {
    console.log('hello')
   console.log(req.query)
-  const queryText = ` SELECT "catdog", "missing", "description", "location", "date", "neighborhood", "photo" FROM "user"
+  const queryText = ` SELECT * FROM "user"
   JOIN "pets" ON "user".id=pets.user_id
   WHERE "user".id=$1`;
   pool.query(queryText, [req.params.id])
@@ -19,6 +19,21 @@ const router = express.Router();
     console.log('Unable to process request')
     res.sendStatus(500)
   })
+});
+
+router.get('/all', (req, res) => {
+console.log('arrive in router.get')
+  const query = `SELECT * FROM pets`;
+  pool.query(query)
+    .then( result => 
+      {console.log(result.rows)
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all movies', err);
+      res.sendStatus(500)
+    })
+
 });
 
 /**
@@ -81,14 +96,25 @@ router.put('/', (req, res) => {
   })
 });
 
-router.delete('/:id', (req, res) => {
-  const queryString = `DELETE FROM pets WHERE id=$1`;
-  values = [ req.params.id ];
-  pool.query( queryString, value).then( (results)=>{
-    res.sendStatus( 200 );
-  }).catch( (err)=>{
-    console.log( err );
-    res.sendStatus( 500 );
+// router.delete('/:id', (req, res) => {
+//   const queryString = `DELETE FROM pets WHERE id=$1`;
+//   values = [ req.params.id ];
+//   pool.query( queryString, value).then( (results)=>{
+//     res.sendStatus( 200 );
+//   }).catch( (err)=>{
+//     console.log( err );
+//     res.sendStatus( 500 );
+//   })
+// });
+
+router.delete('delete/:id', (req, res) => {
+  const deletePets = `DELETE * FROM pets WHERE id=$1`;
+  values= [req.params.id]
+  pool.query(deletePets, values).then((result) => {
+      res.sendStatus(200);
+  }).catch((error) => {
+      console.log('Error DELETE /api/animals', error);
+      res.sendStatus(500);
   })
 });
 
