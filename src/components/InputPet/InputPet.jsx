@@ -13,8 +13,8 @@ const dispatch = useDispatch();
       catdog: 0,
       missing:'',
       description:'',
-      location:'',
-      date:'',
+      // location:'',
+      // dates:'',
       neighborhood:'',
       photo:'',
       user_id: user.id
@@ -86,13 +86,13 @@ const dispatch = useDispatch();
                 <br/>
                 <label>Enter your pet's name and description</label>
                 <input type='text' placeholder='Description' value={newPet.description} onChange={handleNewDescription} />
-                <br/>
+                {/* <br/>
                 <label>Enter the last known location description</label>
                 <input type='text' placeholder='Location' value={newPet.location} onChange={handleNewLocation} />
                 <br/>
                 <label>Enter the last known date seen</label>
                 <input type='text' placeholder='Date' value={newPet.date} onChange={handleNewDate} />
-                <br/>
+                <br/> */}
                 <label>Enter your neighborhood</label>
                 <input type='text' placeholder='Neighborhood' value={newPet.neighborhood} onChange={handleNewNeighborhood} />
                 <br/>

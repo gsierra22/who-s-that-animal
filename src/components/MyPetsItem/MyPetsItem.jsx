@@ -18,7 +18,7 @@ function MyPetsItem(props) {
     <div> 
     <div key={props.pet.id} >
         <h3>{props.pet.description}</h3>
-        <img src={props.pet.photo} alt={props.pet.catdog}  />
+        <Link to="/details"><img src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button >Delete Animal</button></Link>
     </div>
 </div>
