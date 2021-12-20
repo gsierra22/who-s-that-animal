@@ -1,6 +1,6 @@
-const animalsReducer = (state = [], action) => {
+const petsReducer = (state = [], action) => {
   switch (action.type) {
-      case 'SET_ANIMALS':
+      case 'SET_PETS':
           return action.payload;
       default:
           return state;
@@ -11,4 +11,4 @@ const animalsReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default animalsReducer;
+export default petsReducer;

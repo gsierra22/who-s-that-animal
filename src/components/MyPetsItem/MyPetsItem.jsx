@@ -5,21 +5,13 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
 function MyPetsItem(props) {
   const dispatch = useDispatch();
-  const user = useSelector((store) => store.user);
-  const animals=useSelector((store)=>store.animalsReducer)
-// const pushList = () => {
-//   console.log( 'Animals', props.pets.id );
-//   dispatch({
-//       type: 'FETCH_ANIMALS',
-//       payload: props.pets.id
-//   })
-// }
+
   return (
     <div> 
     <div key={props.pet.id} >
         <h3>{props.pet.description}</h3>
         <Link to="/details"><img src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-        <Link to="/delete"><button >Delete Animal</button></Link>
+        <Link to="/delete"><button >Delete Pet</button></Link>
     </div>
 </div>
   );

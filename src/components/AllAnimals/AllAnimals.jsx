@@ -9,7 +9,7 @@ function AllAnimals(props) {
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const animals=useSelector((store)=>store.animalsReducer)
+  const pets=useSelector((store)=>store.petsReducer)
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL',
                 });
@@ -21,7 +21,7 @@ function AllAnimals(props) {
       <p>Your ID is: {user.id}</p>
       <p>{user.bio}</p>
       <div>
-      { animals.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
+      { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>
       <LogOutButton className="btn" />
     </div>

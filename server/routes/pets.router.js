@@ -53,12 +53,12 @@ console.log('arrive in router.get')
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
-  const insertPetQuery = `INSERT INTO "pets" (catdog, missing, description, location, date, neighborhood, photo, user_id  ) 
+  const insertPetQuery = `INSERT INTO "pets" (catdog, missing, description, neighborhood, photo, user_id  ) 
   VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 );
   `
 
   // FIRST QUERY MAKES MOVIE
-  pool.query(insertPetQuery, [req.body.catdog, req.body.missing, req.body.description,req.body.location,req.body.date, req.body.neighborhood, req.body.photo, req.body.user_id])
+  pool.query(insertPetQuery, [req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
   .then(result => {
     
     // const createdMovieId = result.rows[0].id

@@ -25,7 +25,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter)
-app.use('/api/animals', petRouter)
+app.use('/api/pets', petRouter)
 app.use('/api/track', trackRouter)
 
 // Serve static files
