@@ -10,7 +10,7 @@ const dispatch = useDispatch();
 
   let [newPet, setPet] = useState(
     {
-      catdog: 0,
+      catdog: 'Cat',
       missing: true,
       description:'',
       // location:'',
@@ -74,8 +74,8 @@ const dispatch = useDispatch();
         <br/>
               <label>Cat or Dog?</label>
                 <select type='text' placeholder='Cat or Dog' value={newPet.catdog} onChange={handleNewCatdog} >
-                  <option value={1}>Cat</option>
-                  <option value={2}>Dog</option>
+                  <option value={'Cat'}>Cat</option>
+                  <option value={'Dog'}>Dog</option>
                   </select>
                   <br/>
                 <label>Is your pet missing?</label>
