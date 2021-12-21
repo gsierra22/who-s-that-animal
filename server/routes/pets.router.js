@@ -108,7 +108,7 @@ router.put('/', (req, res) => {
 // });
 
 router.delete('/delete/:id', (req, res) => {
-  const deletePets = `DELETE * FROM pets WHERE id=$1`;
+  const deletePets = `DELETE FROM pets WHERE id=$1`;
   values= [req.params.id]
   pool.query(deletePets, values).then((result) => {
       res.sendStatus(200);

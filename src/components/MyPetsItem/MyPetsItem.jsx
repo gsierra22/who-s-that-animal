@@ -6,12 +6,19 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 function MyPetsItem(props) {
   const dispatch = useDispatch();
 
+
+  const storeDelete = () => {
+    dispatch({ type: 'SET_DELETE',
+    payload: props.pet.id });
+};
+
+
   return (
     <div> 
     <div key={props.pet.id} >
         <h3>{props.pet.description}</h3>
         <Link to="/details"><img src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-        <Link to="/delete"><button >Delete Pet</button></Link>
+        <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>
 </div>
   );
