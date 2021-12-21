@@ -8,11 +8,11 @@ function DeleteAnimals(props)
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const animals=useSelector((store)=>store.animalsReducer)
+  const pets=useSelector((store)=>store.petsReducer)
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {
-    dispatch({ type: 'REMOVE_ANIMALS',
-    payload: animals[0].id });
+    dispatch({ type: 'REMOVE_PETS',
+    payload: pets.id });
 }, []);
 
 
@@ -21,7 +21,7 @@ function DeleteAnimals(props)
       <h2>Are you sure you want to delete this animal?</h2>
       <Link to="/user"><button onClick={DeleteAnimals}>Yes</button></Link>
       <Link to="/user"><button >No</button></Link>
-      <p>{JSON.stringify(animals[0])}
+      <p>{JSON.stringify(pets[0])}
       </p>
     </div>
   );

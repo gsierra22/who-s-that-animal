@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
   const insertPetQuery = `INSERT INTO "pets" (catdog, missing, description, neighborhood, photo, user_id  ) 
-  VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 );
+  VALUES ( $1, $2, $3, $4, $5, $6 );
   `
 
   // FIRST QUERY MAKES MOVIE
@@ -107,7 +107,7 @@ router.put('/', (req, res) => {
 //   })
 // });
 
-router.delete('delete/:id', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
   const deletePets = `DELETE * FROM pets WHERE id=$1`;
   values= [req.params.id]
   pool.query(deletePets, values).then((result) => {

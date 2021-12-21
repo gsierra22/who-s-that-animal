@@ -42,9 +42,9 @@ function *postPets( action ){
 }
 
 function *removePets( action ){
-  console.log( 'in *postSaga:', action.payload );
+  console.log( 'in *deleteSaga:', action.payload );
   try {
-    const response = yield axios.delete(`/api/pets/${action.payload.id}`);
+    const response = yield axios.delete(`/api/delete/${action.payload.id}`);
     yield put({type: 'FETCH_PETS', payload: response.data})
   } catch (err) {
       console.log('error:', err);
