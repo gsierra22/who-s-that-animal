@@ -4,9 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
 function AllAnimalsItem(props) {
-  const dispatch = useDispatch();
-  const user = useSelector((store) => store.user);
-  const animals=useSelector((store)=>store.animalsReducer)
+
 
   return (
     <div> 

@@ -11,7 +11,7 @@ const dispatch = useDispatch();
   let [newPet, setPet] = useState(
     {
       catdog: 0,
-      missing:'',
+      missing: true,
       description:'',
       // location:'',
       // dates:'',
@@ -31,7 +31,7 @@ const dispatch = useDispatch();
   }
 
   const handleNewMissing = (event) => {
-    console.log('event happened');
+    console.log('missing happened', event.target.value);
     //Similar to in redux -- we dont want to get rid of the id field when we update name
     setPet({...newPet, missing: event.target.value})
   }

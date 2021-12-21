@@ -23,7 +23,6 @@ function AllAnimals(props) {
       <div>
       { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>
-      <LogOutButton className="btn" />
     </div>
   );
 }
