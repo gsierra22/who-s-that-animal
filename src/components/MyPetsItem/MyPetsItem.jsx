@@ -12,12 +12,27 @@ function MyPetsItem(props) {
     payload: props.pet.id });
 };
 
+const animalDetails = () => {
+  console.log( 'in animalDetails', props.pet.id );
+  //send dispatch to the store
+  dispatch({
+      type: 'SET_ID',
+      payload: props.pet
+
+  })
+  dispatch({
+      type: 'FETCH_TRACK',
+      payload: props.pet.id
+  })
+}
+
 
   return (
     <div> 
     <div key={props.pet.id} >
-        <h3>{props.pet.description}</h3>
-        <Link to="/details"><img src={props.pet.photo} alt={props.pet.catdog}  /></Link>
+        <h3>{props.pet.name}</h3>
+        <p>{props.pet.description}</p>
+        <Link to="/details"><img onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>
 </div>

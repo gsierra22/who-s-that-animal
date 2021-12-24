@@ -9,7 +9,8 @@ function AllAnimalsItem(props) {
   return (
     <div> 
     <div key={props.pet} >
-        <h3>{props.pet.description}</h3>
+    <h3>{props.pet.name}</h3>
+        <p>{props.pet.description}</p>
         <Link to="/details"> <img src={props.pet.photo} alt={props.pet.catdog}  /></Link>
     </div>
 </div>

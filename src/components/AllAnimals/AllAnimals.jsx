@@ -15,6 +15,11 @@ function AllAnimals(props) {
                 });
 }, []);
 
+const storeId = () => {
+  dispatch({ type: 'SET_ID',
+  payload: props.pet.id });
+};
+
   return (
     <div className="container">
       <h2>Welcome to all, {user.username}!</h2>

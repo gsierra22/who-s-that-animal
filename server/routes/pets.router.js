@@ -53,23 +53,23 @@ console.log('arrive in router.get')
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
-  const insertPetQuery = `INSERT INTO "pets" (catdog, missing, description, neighborhood, photo, user_id  ) 
-  VALUES ( $1, $2, $3, $4, $5, $6 );
+  const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, user_id  ) 
+  VALUES ( $1, $2, $3, $4, $5, $6, $7 );
   `
 
   // FIRST QUERY MAKES MOVIE
-  pool.query(insertPetQuery, [req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
+  pool.query(insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
   .then(result => {
-    
-    // const createdMovieId = result.rows[0].id
+    console.log("New Pet Id:", result.rows[0].id)
+    const createdPetId = result.rows[0].id
 
     // Now handle the track reference
-     const insertMovieGenreQuery = `
-      INSERT INTO "movies_genres" ("movie_id", "genre_id")
-      VALUES  ($1, $2);
+     const insertTrackQuery = `
+      INSERT INTO "track" ("pets_id", "dates", "location")
+      VALUES  ($1, $2, $3);
       `
       // SECOND QUERY ADDS GENRE FOR THAT NEW MOVIE
-      pool.query(insertMovieGenreQuery, [createdMovieId, req.body.genre_id]).then(result => {
+      pool.query(insertPetQuery, [createdPetId, req.body.pets_id]).then(result => {
         //Now that both are done, send back success!
         res.sendStatus(201);
       }).catch(err => {
@@ -96,16 +96,6 @@ router.put('/', (req, res) => {
   })
 });
 
-// router.delete('/:id', (req, res) => {
-//   const queryString = `DELETE FROM pets WHERE id=$1`;
-//   values = [ req.params.id ];
-//   pool.query( queryString, value).then( (results)=>{
-//     res.sendStatus( 200 );
-//   }).catch( (err)=>{
-//     console.log( err );
-//     res.sendStatus( 500 );
-//   })
-// });
 
 router.delete('/delete/:id', (req, res) => {
   const deletePets = `DELETE FROM pets WHERE id=$1`;
