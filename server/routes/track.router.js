@@ -6,17 +6,18 @@ const router = express.Router();
  * GET route template
  */
  router.get('/tracker/:id', (req, res) => {
-  console.log('hello')
- console.log(req.query)
- const queryText = `  SELECT "dates", "location" FROM "pets"
+  console.log('hello tracker', req.params.id)
+ //console.log(req.query)
+ const queryText = `SELECT "location", dates, pets_id FROM "pets"
  JOIN "track" ON "pets".id=track.pets_id
  WHERE "pets".id=$1`;
  pool.query(queryText, [req.params.id])
  .then (result => {
+   console.log('then console')
    res.send(result.rows);
  })
  .catch(err =>{
-   console.log('Unable to process request')
+   console.log('Unable to process tracker request', err)
    res.sendStatus(500)
  })
 });

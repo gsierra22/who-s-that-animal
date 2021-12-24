@@ -13,6 +13,7 @@ const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const pets=useSelector((store)=>store.petsReducer)
   const idr= useSelector((store)=>store.idReducer)
+  const track=useSelector((store)=>store.trackReducer)
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -24,8 +25,10 @@ const dispatch = useDispatch();
       <p>{idr.description}</p>
       <p>{idr.neighborhood}</p>
       <p>{idr.missing}</p>
+      <p>{idr.location}</p>
+      {track.map( (track) => <p>{track.dates},{track.location}</p>)}
       <button ><Link to="/user">Back</Link></button>
-      <p>{JSON.stringify(idr)}
+      <p>{JSON.stringify(track)}
       </p>
     </div>
   );

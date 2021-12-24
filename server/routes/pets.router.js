@@ -7,7 +7,7 @@ const router = express.Router();
  */
  router.get('/mypets/:id', (req, res) => {
    console.log('hello')
-  console.log(req.query)
+  //console.log(req.query)
   const queryText = ` SELECT * FROM "user"
   JOIN "pets" ON "user".id=pets.user_id
   WHERE "user".id=$1`;
@@ -26,7 +26,7 @@ console.log('arrive in router.get')
   const query = `SELECT * FROM pets`;
   pool.query(query)
     .then( result => 
-      {console.log(result.rows)
+      {//console.log(result.rows)
       res.send(result.rows);
     })
     .catch(err => {

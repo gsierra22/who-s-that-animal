@@ -4,7 +4,7 @@ import store from '../store';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchTrack(action) {
-  console.log('Track test')
+  console.log('Track saga test')
   // get all movies from the DB
   try {
     //console.log(action.payload)
@@ -13,7 +13,7 @@ function* fetchTrack(action) {
       yield put({ type: 'SET_TRACK', payload: track.data });
 
   } catch (err) {
-      console.log('get all error', err);
+      console.log('get track error', err);
   }
       
 }
@@ -39,11 +39,11 @@ function* fetchTrack(action) {
 //   }
 // }
 
-function* PetSaga() {
+function* trackSaga() {
   yield takeLatest('FETCH_TRACK', fetchTrack)
   // yield takeLatest('FETCH_ALL', fetchAll);
   // yield takeLatest( 'ADD_PETS', postPets );
   // yield takeLatest('REMOVE_PETS', removePets)
 }
 
-export default PetSaga;
+export default trackSaga;
