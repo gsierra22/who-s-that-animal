@@ -7,17 +7,31 @@ function InputPet() {
 const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const pets=useSelector((store)=>store.petsReducer)
+  const track=useSelector((store)=>store.trackReducer)
 
-  let [newPet, setPet] = useState(
+  useEffect(() => {
+    dispatch({
+      type: 'FETCH_TRACK',
+      payload: user.id})
+
+      dispatch({
+        type: 'FETCH_PETS',
+        payload: pets.id
+    })
+  }, []);
+
+
+  let [newPet, setPet] = useState( 
     { name:'',
       catdog: 'Cat',
       missing: true,
       description:'',
-      // location:'',
-      // dates:'',
+      location:'',
+      dates:'',
       neighborhood:'',
       photo:'',
-      user_id: user.id
+      user_id: user.id,
+      pets_id: pets.id
     });
 
     const addNewPet = event => {
@@ -57,7 +71,7 @@ const dispatch = useDispatch();
   const handleNewDate = (event) => {
     console.log('event happened');
     //Similar to in redux -- we dont want to get rid of the id field when we update name
-    setPet({...newPet, date: event.target.value})
+    setPet({...newPet, dates: event.target.value})
   }
 
   const handleNewNeighborhood = (event) => {
@@ -77,13 +91,13 @@ const dispatch = useDispatch();
     <div className="container">
       <h1>Add a new pet, {user.username}!</h1>
       <form onSubmit={addNewPet}>
-        <br/>
-              <label>Cat or Dog?</label>
 
               <br/>
                 <label>Enter your pet's name</label>
                 <input type='text' placeholder='Name' value={newPet.name} onChange={handleNewName} />
 
+                <br/>
+              <label>Cat or Dog?</label>
                 <select type='text' placeholder='Cat or Dog' value={newPet.catdog} onChange={handleNewCatdog} >
                   <option value={'Cat'}>Cat</option>
                   <option value={'Dog'}>Dog</option>
@@ -100,13 +114,15 @@ const dispatch = useDispatch();
                 <label>Enter your pet's description</label>
                 <input type='text' placeholder='Description' value={newPet.description} onChange={handleNewDescription} />
 
-                {/* <br/>
+                <br/>
                 <label>Enter the last known location description</label>
                 <input type='text' placeholder='Location' value={newPet.location} onChange={handleNewLocation} />
+                
                 <br/>
                 <label>Enter the last known date seen</label>
-                <input type='text' placeholder='Date' value={newPet.date} onChange={handleNewDate} />
-                <br/> */}
+                <input type='text' placeholder='Date' value={newPet.dates} onChange={handleNewDate} />
+                
+                <br/>
                 <label>Enter your neighborhood</label>
                 <input type='text' placeholder='Neighborhood' value={newPet.neighborhood} onChange={handleNewNeighborhood} />
                 
@@ -117,7 +133,7 @@ const dispatch = useDispatch();
                 <Link to="/user"><button onClick={addNewPet}>Save</button></Link>
             </form>
       <button ><Link to="/user">Back</Link></button>
-      <p>{JSON.stringify(pets)}
+      <p>{JSON.stringify(track)}
       </p>
     </div>
   );

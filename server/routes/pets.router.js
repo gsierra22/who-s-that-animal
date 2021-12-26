@@ -65,11 +65,11 @@ router.post('/', (req, res) => {
 
     // Now handle the track reference
      const insertTrackQuery = `
-      INSERT INTO "track" ("pets_id", "dates", "location")
+      INSERT INTO "track" (pets_id, dates, location)
       VALUES  ($1, $2, $3);
       `
-      // SECOND QUERY ADDS GENRE FOR THAT NEW MOVIE
-      pool.query(insertPetQuery, [createdPetId, req.body.pets_id]).then(result => {
+      // SECOND QUERY ADDS TRACKING INFORMATION FOR THAT NEW PET
+      pool.query(insertTrackQuery, [createdPetId, req.body.pets_id]).then(result => {
         //Now that both are done, send back success!
         res.sendStatus(201);
       }).catch(err => {

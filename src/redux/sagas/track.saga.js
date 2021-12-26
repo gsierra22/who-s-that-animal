@@ -18,16 +18,32 @@ function* fetchTrack(action) {
       
 }
 
+function* fetchProfile (action) {
+  console.log('Track saga test')
+  // get all movies from the DB
+  try {
+    //console.log(action.payload)
+      const profile = yield axios.get(`/api/track/profile/${action.payload}`);
+      console.log('get track:', profile.data);
+      yield put({ type: 'SET_TRACK', payload: profile.data });
 
-// function *postPets( action ){
-//   console.log( 'in *postSaga:', action );
-//   try {
-//     const response = yield axios.post('/api/pets', action.payload);
-//     yield put({type: 'FETCH_PETS', payload: store.user.id})
-//   } catch (err) {
-//       console.log('error:', err);
-//   }
-// }
+  } catch (err) {
+      console.log('get track error', err);
+  }
+      
+}
+
+
+
+function *postTrack( action ){
+  console.log( 'in *postTrack:', action );
+  try {
+    const response = yield axios.post('/api/track', action.payload);
+    yield put({type: 'FETCH_TRACK', payload: store.pets.id})
+  } catch (err) {
+      console.log('error:', err);
+  }
+}
 
 // function *removePets( action ){
 //   console.log( 'in *deleteSaga:', action.payload );
@@ -41,8 +57,8 @@ function* fetchTrack(action) {
 
 function* trackSaga() {
   yield takeLatest('FETCH_TRACK', fetchTrack)
-  // yield takeLatest('FETCH_ALL', fetchAll);
-  // yield takeLatest( 'ADD_PETS', postPets );
+  yield takeLatest('FETCH_PROFILE', fetchProfile);
+  yield takeLatest( 'ADD_TRACK', postTrack );
   // yield takeLatest('REMOVE_PETS', removePets)
 }
 
