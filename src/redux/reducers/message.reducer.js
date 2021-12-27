@@ -1,6 +1,6 @@
-const profileTrack = (state = [], action) => {
+const messageReducer = (state = [], action) => {
   switch (action.type) {
-      case 'SET_PROFILETRACK':
+      case 'SET_MESSAGE':
           return action.payload;
       default:
           return state;
@@ -11,4 +11,4 @@ const profileTrack = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default profileTrack;
+export default messageReducer;

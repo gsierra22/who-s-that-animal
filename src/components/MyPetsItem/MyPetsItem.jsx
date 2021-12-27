@@ -31,10 +31,10 @@ const isMissing = props.pet.missing;
   return (
     <div> 
     <div key={props.pet.id} >
-        <h3>{props.pet.name}</h3>
-        <p>{props.pet.description}</p>
-        <p>Missing?{isMissing ? 'Yes': 'No'}</p>
-        <button>Set Missing</button>
+      <br/>
+        <h3>Name: {props.pet.name}</h3>
+        <p>Pet Description: {props.pet.description}</p>
+        <p>Missing?: {isMissing ? 'Yes': 'No'}<button>Set Missing</button></p>
         <Link to="/details"><img onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>

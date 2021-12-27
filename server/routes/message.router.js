@@ -5,8 +5,20 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-  // GET route code here
+ router.get('/message/:id', (req, res) => {
+  console.log('hello')
+ //console.log(req.query)
+ const queryText = ` SELECT message, "name", "description", neighborhood, catdog FROM "pets"
+ JOIN "message" ON "pets".id=message.pet_id
+ WHERE "pets".id=1$`;
+ pool.query(queryText, [req.params.id])
+ .then (result => {
+   res.send(result.rows);
+ })
+ .catch(err =>{
+   console.log('Unable to process request')
+   res.sendStatus(500)
+ })
 });
 
 /**

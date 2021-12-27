@@ -5,6 +5,7 @@ import petsReducer from './pets.reducer';
 import deletePets from './deletepets.reducer';
 import trackReducer from './track.reducer';
 import idReducer from './id.reducer';
+import messageReducer from './message.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   petsReducer,
   deletePets,
   trackReducer,
-  idReducer
+  idReducer,
+  messageReducer
 
 });
 

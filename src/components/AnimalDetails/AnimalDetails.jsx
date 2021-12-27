@@ -40,19 +40,17 @@ let [newTrack, setTrack] = useState(
     //Similar to in redux -- we dont want to get rid of the id field when we update name
     setTrack({...newTrack, dates: event.target.value})
   }
+
+  const isMissing = idr.missing;
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>{user.bio}</p>
-      <p>{idr.name}</p>
-      <p>{idr.catdog}</p>
+      <h2>Welcome, to {idr.name}'s  profile!</h2>
+      <p>Cat or Dog: {idr.catdog}</p>
       <img src={idr.photo} alt="No Photo"  />
-      <p>{idr.description}</p>
-      <p>{idr.neighborhood}</p>
-      <p>Missing?:{idr.missing}</p>
-      <p>{idr.location}</p>
-      {track.map( (track) => <p>{track.dates},{track.location}</p>)}
+      <p>Pet's Description: {idr.description}</p>
+      <p>Home Neighborhood: {idr.neighborhood}</p>
+      <p>Missing?: {isMissing ? 'Yes': 'No'}</p>
+      {track.map( (track) => <div><p>Date Seen:{track.dates}</p><p>Location Seen:{track.location}</p></div>)}
       <br/>
                 <label>Enter the last known location description</label>
                 <input type='text' placeholder='Location' value={newTrack.location} onChange={handleNewLocation} />
@@ -62,8 +60,6 @@ let [newTrack, setTrack] = useState(
                 <input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} />
                 <Link to="/user"><button onClick={addNewTrack}>Save</button></Link>
       <button ><Link to="/user">Back</Link></button>
-      <p>{JSON.stringify(track)}
-      </p>
     </div>
   );
 }
