@@ -30,8 +30,7 @@ const dispatch = useDispatch();
       dates:'',
       neighborhood:'',
       photo:'',
-      user_id: user.id,
-      pets_id: pets.id
+      user_id: user.id
     });
 
     const addNewPet = event => {

@@ -39,7 +39,7 @@ function *postTrack( action ){
   console.log( 'in *postTrack:', action );
   try {
     const response = yield axios.post('/api/track', action.payload);
-    yield put({type: 'FETCH_TRACK', payload: store.pets.id})
+    yield put({type: 'FETCH_TRACK', payload: store.track.id})
   } catch (err) {
       console.log('error:', err);
   }

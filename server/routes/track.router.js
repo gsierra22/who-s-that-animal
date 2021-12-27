@@ -9,7 +9,7 @@ const router = express.Router();
   console.log('req params', req.params)
   console.log('req query', req.query)
  //console.log(req.query)
- const queryText = `SELECT "location", dates, pets_id FROM "pets"
+ const queryText = `SELECT "location", dates, pets.id FROM "pets"
  JOIN "track" ON "pets".id=track.pets_id
  WHERE "pets".id=$1`;
  pool.query(queryText, [req.params.id])
@@ -27,7 +27,7 @@ router.get('/profile/:id', (req, res) => {
   console.log('req params', req.params)
   console.log('req query', req.query)
  //console.log(req.query)
- const profileQuery = `SELECT track.location, track.dates, pets.name, pets.photo FROM pets
+ const profileQuery = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id FROM pets
  JOIN "user" ON pets.user_id= "user".id
  JOIN "track" ON track.pets_id=pets.id
  WHERE "user".id=$1`;
@@ -45,8 +45,16 @@ router.get('/profile/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+ router.post('/', (req, res) => {
+  const queryText = `INSERT INTO "track" (pets_id, dates, location, user_id)
+  VALUES  ($1, $2, $3, $4)`;
+  const queryValues = [ req.body.id, req.body.dates, req.body.location, req.body.user_id];
+  pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(201); })
+    .catch((err) => {
+      console.log('Error completing SELECT plant query', err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;

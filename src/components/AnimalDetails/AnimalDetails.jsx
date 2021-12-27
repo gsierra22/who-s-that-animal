@@ -50,7 +50,7 @@ let [newTrack, setTrack] = useState(
       <img src={idr.photo} alt="No Photo"  />
       <p>{idr.description}</p>
       <p>{idr.neighborhood}</p>
-      <p>{idr.missing}</p>
+      <p>Missing?:{idr.missing}</p>
       <p>{idr.location}</p>
       {track.map( (track) => <p>{track.dates},{track.location}</p>)}
       <br/>

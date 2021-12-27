@@ -52,11 +52,24 @@ function *removePets( action ){
   }
 }
 
+function* updateMissing(action){
+console.log('in putSaga:', action.payload)
+  try {
+    const updatedTask = yield axios.put(`/api/pets/${action.payload.id}`);  
+
+    yield put({ type: 'FETCH_PETS', payload: action.payload.missing });
+
+  } catch (err) {
+    console.log('update error', error);
+  } 
+}
+
 function* PetSaga() {
   yield takeLatest('FETCH_PETS', fetchPets)
   yield takeLatest('FETCH_ALL', fetchAll);
   yield takeLatest( 'ADD_PETS', postPets );
-  yield takeLatest('REMOVE_PETS', removePets)
+  yield takeLatest('REMOVE_PETS', removePets);
+  yield takeLatest ('UPDATE_PETS', updateMissing)
 }
 
 export default PetSaga;

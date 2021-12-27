@@ -52,24 +52,24 @@ console.log('arrive in router.get')
 
 router.post('/', (req, res) => {
   console.log(req.body);
-  // RETURNING "id" will give us back the id of the created movie
+  // RETURNING "id" will give us back the id of the created pet
   const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, user_id  ) 
   VALUES ( $1, $2, $3, $4, $5, $6, $7 );
   `
 
-  // FIRST QUERY MAKES MOVIE
+  // FIRST QUERY MAKES Pet
   pool.query(insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
   .then(result => {
-    console.log("New Pet Id:", result.rows[0].id)
-    const createdPetId = result.rows[0].id
+    // console.log("New Pet Id:", result.rows[0].id)
+    //const createdPetId = result.rows[0].id
 
     // Now handle the track reference
      const insertTrackQuery = `
-      INSERT INTO "track" (pets_id, dates, location)
-      VALUES  ($1, $2, $3);
+      INSERT INTO "track" (pets_id, dates, location, user_id)
+      VALUES  ($1, $2, $3, $4);
       `
       // SECOND QUERY ADDS TRACKING INFORMATION FOR THAT NEW PET
-      pool.query(insertTrackQuery, [createdPetId, req.body.pets_id]).then(result => {
+      pool.query(insertTrackQuery, [1 , req.body.dates, req.body.location, req.body.user_id]).then(result => {
         //Now that both are done, send back success!
         res.sendStatus(201);
       }).catch(err => {
@@ -85,11 +85,23 @@ router.post('/', (req, res) => {
   })
 })
 
-router.put('/', (req, res) => {
-  const queryString = `UPDATE "widget" SET price=$1 WHERE id=$2;`;
-  values = [ req.query.price, req.query.id ];
+router.put('/missing/:id', (req, res) => {
+  console.log(req.params);
+  const galleryId = req.params.id;
+  for(const galleryItem of galleryItems) {
+      if(galleryItem.id == galleryId) {
+          galleryItem.likes += 1;
+      }
+  }
+  res.sendStatus(200);
+}); // END PUT Route
+
+router.put('/:id', (req, res) => {
+  const queryString = `UPDATE "pets" SET missing=$1 WHERE id=${req.params.id};`;
+  values = [ req.body.missing ];
   pool.query( queryString, value).then( (results)=>{
     res.sendStatus( 200 );
+    console.log(result.rows)
   }).catch( (err)=>{
     console.log( err );
     res.sendStatus( 500 );
