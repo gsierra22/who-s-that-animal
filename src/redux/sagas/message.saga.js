@@ -8,7 +8,7 @@ function* fetchMessage(action) {
   // get all movies from the DB
   try {
     //console.log(action.payload)
-      const message = yield axios.get(`/api/message/message/${action.payload}`);
+      const message = yield axios.get(`/api/message/message`);
       console.log('get track:', message.data);
       yield put({ type: 'SET_MESSAGE', payload: message.data });
 
@@ -21,7 +21,7 @@ function* fetchMessage(action) {
 
 
 function* messageSaga() {
-  yield takeLatest('FETCH_TRACK', fetchMessage)
+  yield takeLatest('FETCH_MESSAGE', fetchMessage)
 }
 
 export default messageSaga;

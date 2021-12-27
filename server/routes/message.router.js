@@ -5,13 +5,13 @@ const router = express.Router();
 /**
  * GET route template
  */
- router.get('/message/:id', (req, res) => {
+ router.get('/message', (req, res) => {
   console.log('hello')
  //console.log(req.query)
  const queryText = ` SELECT message, "name", "description", neighborhood, catdog FROM "pets"
  JOIN "message" ON "pets".id=message.pet_id
  WHERE "pets".id=1$`;
- pool.query(queryText, [req.params.id])
+ pool.query(queryText)
  .then (result => {
    res.send(result.rows);
  })
