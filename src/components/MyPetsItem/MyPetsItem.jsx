@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
@@ -26,6 +26,27 @@ const animalDetails = () => {
   })
 }
 
+
+
+const [showMissing, setShowMissing] = useState(props.pet.missing)
+
+const toggleMissing = () => {
+  let  missingToSend= 
+{id: props.pet.id,
+missing: props.pet.missing}
+
+  if (showMissing) {
+    setShowMissing(false);
+    missingToSend.missing = false;
+  } 
+  else {
+    setShowMissing(true);
+    missingToSend.missing = true;
+  }
+
+  dispatch({type: 'UPDATE_PETS', payload: missingToSend });
+}
+
 const isMissing = props.pet.missing;
 
   return (
@@ -34,7 +55,7 @@ const isMissing = props.pet.missing;
       <br/>
         <h3>Name: {props.pet.name}</h3>
         <p>Pet Description: {props.pet.description}</p>
-        <p>Missing?: {isMissing ? 'Yes': 'No'}<button>Set Missing</button></p>
+        <p>Missing?: {isMissing ? 'Yes': 'No'}<button onClick={toggleMissing}>Set Missing</button></p>
         <Link to="/details"><img onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>

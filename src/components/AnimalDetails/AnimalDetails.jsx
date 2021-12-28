@@ -22,7 +22,7 @@ let [newTrack, setTrack] = useState(
     dates:'',
     location:'',
     user_id: user.id,
-    pets_id: pets.id
+    pets_id: idr.id
   });
 
   const addNewTrack = event => {

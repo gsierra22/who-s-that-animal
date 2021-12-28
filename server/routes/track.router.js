@@ -48,7 +48,8 @@ router.get('/profile/:id', (req, res) => {
  router.post('/', (req, res) => {
   const queryText = `INSERT INTO "track" (pets_id, dates, location, user_id)
   VALUES  ($1, $2, $3, $4)`;
-  const queryValues = [ req.body.id, req.body.dates, req.body.location, req.body.user_id];
+  console.log(req.body)
+  const queryValues = [ req.body.pets_id, req.body.dates, req.body.location, req.body.user_id];
   pool.query(queryText, queryValues)
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
