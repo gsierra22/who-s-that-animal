@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
  router.get('/mypets/:id', (req, res) => {
-   console.log('hello')
+   //console.log('hello')
   //console.log(req.query)
   const queryText = ` SELECT * FROM "user"
   JOIN "pets" ON "user".id=pets.user_id
@@ -22,7 +22,7 @@ const router = express.Router();
 });
 
 router.get('/all', (req, res) => {
-console.log('arrive in router.get')
+//console.log('arrive in router.get')
   const query = `SELECT * FROM pets`;
   pool.query(query)
     .then( result => 
@@ -51,7 +51,7 @@ console.log('arrive in router.get')
 // });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   // RETURNING "id" will give us back the id of the created pet
   const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, user_id  ) 
   VALUES ( $1, $2, $3, $4, $5, $6, $7 ) RETURNING "id";
@@ -60,7 +60,7 @@ router.post('/', (req, res) => {
   // FIRST QUERY MAKES Pet
   pool.query (insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
   .then(result => {
-    console.log("New Pet Id:", result.rows[0].id)
+    //console.log("New Pet Id:", result.rows[0].id)
     const createdPetId = result.rows[0].id
 
     // Now handle the track reference

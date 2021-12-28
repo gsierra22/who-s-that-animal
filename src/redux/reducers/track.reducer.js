@@ -1,5 +1,5 @@
 const trackReducer = (state = [], action) => {
-  console.log('track reducer working')
+  //console.log('track reducer working')
   switch (action.type) {
       case 'SET_TRACK':
           return action.payload;

@@ -36,7 +36,7 @@ function* fetchProfile (action) {
 
 
 function *postTrack( action ){
-  console.log( 'in *postTrack:', action );
+  //console.log( 'in *postTrack:', action );
   try {
     const response = yield axios.post('/api/track', action.payload);
     yield put({type: 'FETCH_TRACK', payload: store.track.id})
@@ -45,15 +45,6 @@ function *postTrack( action ){
   }
 }
 
-// function *removePets( action ){
-//   console.log( 'in *deleteSaga:', action.payload );
-//   try {
-//     const response = yield axios.delete(`/api/pets/delete/${action.payload}`);
-//     yield put({type: 'FETCH_PETS', payload: store.user.id})
-//   } catch (err) {
-//       console.log('error:', err);
-//   }
-// }
 
 function* trackSaga() {
   yield takeLatest('FETCH_TRACK', fetchTrack)

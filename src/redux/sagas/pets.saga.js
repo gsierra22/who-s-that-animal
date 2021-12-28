@@ -4,7 +4,7 @@ import store from '../store';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchPets(action) {
-  console.log('Petstest')
+  //console.log('Petstest')
   // get all movies from the DB
   try {
     //console.log(action.payload)
@@ -19,11 +19,11 @@ function* fetchPets(action) {
 }
 
 function* fetchAll() {
-  console.log('testing123')
+  //console.log('testing123')
   // get all movies from the DB
   try {
       const pets = yield axios.get(`/api/pets/all`);
-      console.log('get all:', pets);
+      //console.log('get all:', pets);
       yield put({ type: 'SET_PETS', payload: pets.data });
 
   } catch {
@@ -33,7 +33,7 @@ function* fetchAll() {
 }
 
 function *postPets( action ){
-  console.log( 'in *postSaga:', action );
+  //console.log( 'in *postSaga:', action );
   try {
     const response = yield axios.post('/api/pets', action.payload);
     yield put({type: 'FETCH_PETS', payload: store.user.id})
