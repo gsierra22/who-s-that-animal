@@ -55,7 +55,7 @@ function *removePets( action ){
 function* updateMissing(action){
 console.log('in putSaga:', action.payload)
   try {
-    const updatedTask = yield axios.put(`/api/pets/missing/${action.payload.id}`);  
+    const updatedTask = yield axios.put(`/api/pets/missing/${action.payload.id}?missing=${action.payload.missing}`);  
 
     yield put({ type: 'FETCH_PETS', payload: action.payload.id });
 

@@ -30,7 +30,7 @@ router.get('/profile/:id', (req, res) => {
  const profileQuery = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id FROM pets
  JOIN "user" ON pets.user_id= "user".id
  JOIN "track" ON track.pets_id=pets.id
- WHERE "user".id=$1`;
+ WHERE "track".user_id=$1`;
  pool.query(profileQuery, [req.params.id])
  .then (result => {
    console.log('then console')

@@ -89,7 +89,8 @@ router.post('/', (req, res) => {
 
 router.put('/missing/:id', (req, res) => {
   const queryString = `UPDATE "pets" SET missing=$1 WHERE id=${req.params.id};`;
-  values = [ req.body.missing ];
+  console.log(req.query)
+  values = [ req.query.missing ];
   pool.query( queryString, values).then( (results)=>{
     res.sendStatus( 200 );
     console.log(req.params.id)

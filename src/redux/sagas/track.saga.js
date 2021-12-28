@@ -22,13 +22,13 @@ function* fetchProfile (action) {
   console.log('Track saga test')
   // get all movies from the DB
   try {
-    //console.log(action.payload)
+    console.log(action.payload)
       const profile = yield axios.get(`/api/track/profile/${action.payload}`);
       console.log('get track:', profile.data);
-      yield put({ type: 'SET_TRACK', payload: profile.data });
+      yield put({ type: 'SET_PROFILE', payload: profile.data });
 
   } catch (err) {
-      console.log('get track error', err);
+      console.log('get profile error', err);
   }
       
 }
