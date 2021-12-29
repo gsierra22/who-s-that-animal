@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import userSaga from '../../redux/sagas/user.saga';
 
 function MyPetsItem(props) {
   const dispatch = useDispatch();
-
+  const user = useSelector((store) => store.user);
 
   const storeDelete = () => {
     dispatch({ type: 'SET_DELETE',
@@ -44,7 +45,12 @@ missing: props.pet.missing}
     missingToSend.missing = true;
   }
 
-  dispatch({type: 'UPDATE_PETS', payload: missingToSend });
+  dispatch({type: 'UPDATE_PETS', payload: missingToSend })
+  
+  dispatch({
+    type: 'FETCH_PETS',
+    payload: user.id
+});
 }
 
 const isMissing = props.pet.missing;

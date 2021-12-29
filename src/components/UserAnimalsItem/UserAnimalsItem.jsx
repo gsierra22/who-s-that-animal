@@ -30,10 +30,10 @@ function useAnimalsItem(props) {
   return (
     <div> 
     <div key={props.track.description} >
-        <h3>{props.track.catdog}</h3>
+        <h3>{props.track.name}</h3>
         <p>{props.track.neighborhood}</p>
-        {/* <Link to="/details"><img onClick= {animalDetails}src={props.track.photo} alt={props.track.catdog}  /></Link>
-        <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link> */}
+        <Link to="/details"><img src={props.track.photo} alt={props.track.catdog}  /></Link>
+        {/* <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link> */}
     </div>
 </div>
   );

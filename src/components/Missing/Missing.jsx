@@ -12,10 +12,14 @@ function Missing(props) {
   const pets=useSelector((store)=>store.petsReducer);
   const message=useSelector((store)=>store.messageReducer);
   // this component doesn't do much to start, just renders some user reducer info to the DOM
-  useEffect(() => {//if (pets.missing===true)
+  
+  if (pets.missing===true){
+  useEffect(() => {
     dispatch({ type: 'FETCH_ALL',
                 payload: user.id });
-}, []);
+}, []);}
+
+
 
   return (
     <div className="container">

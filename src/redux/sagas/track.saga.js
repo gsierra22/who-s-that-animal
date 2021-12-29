@@ -19,13 +19,28 @@ function* fetchTrack(action) {
 }
 
 function* fetchProfile (action) {
-  console.log('Track saga test')
+  console.log('Track saga test', action.payload)
   // get all movies from the DB
   try {
     console.log(action.payload)
-      const profile = yield axios.get(`/api/track/profile/${action.payload}`);
+      const profile = yield axios.get(`/api/track/profile/${action.payload.id}`);
       console.log('get track:', profile.data);
-      yield put({ type: 'SET_PROFILE', payload: profile.data });
+      let existingIds = [];
+      let newArray=[];
+      for( let i=0; i < profile.data.length; i++ ){
+        let canAdd = true;
+        for( let j=0; j< existingIds.length; j++ ){
+            if( profile.data[i].pets_id === existingIds[j] ){
+                canAdd = false;
+            }
+        }
+        if( canAdd ){
+            newArray.push( profile.data[i] );
+            existingIds.push(profile.data[i].pets_id)
+        }
+        canAdd = false;
+    }
+    yield put( { type: 'SET_PROFILE', payload: newArray } );
 
   } catch (err) {
       console.log('get profile error', err);

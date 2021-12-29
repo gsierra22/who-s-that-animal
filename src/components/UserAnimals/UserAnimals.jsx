@@ -13,13 +13,16 @@ function UserAnimals(props) {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {
     dispatch({ type: 'FETCH_PROFILE',
-                payload: pets.id });
+                payload: {id: user.id,
+                          name: track.name,
+                          photo:track.photo}});
 
 }, []);
  
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
+      {JSON.stringify(track)}
       <p>Your ID is: {user.id}</p>
       <p>{user.bio}</p>
       { track.map(( track)=>( <UserAnimalsItem track={track}/>) )}
