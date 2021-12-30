@@ -22,7 +22,6 @@ function* fetchProfile (action) {
   console.log('Track saga test', action.payload)
   // get all movies from the DB
   try {
-    console.log(action.payload)
       const profile = yield axios.get(`/api/track/profile/${action.payload.id}`);
       console.log('get track:', profile.data);
       let existingIds = [];

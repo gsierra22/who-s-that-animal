@@ -22,9 +22,9 @@ function UserAnimals(props) {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      {JSON.stringify(track)}
       <p>Your ID is: {user.id}</p>
       <p>{user.bio}</p>
+      <h3>Animals that you previously tracked!</h3>
       { track.map(( track)=>( <UserAnimalsItem track={track}/>) )}
       <button ><Link to="/input">Input New Pet</Link></button>
       <LogOutButton className="btn" />

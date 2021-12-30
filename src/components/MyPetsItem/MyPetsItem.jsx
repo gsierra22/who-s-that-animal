@@ -19,7 +19,6 @@ const animalDetails = () => {
   dispatch({
       type: 'SET_ID',
       payload: props.pet
-
   })
   dispatch({
       type: 'FETCH_TRACK',
@@ -34,26 +33,9 @@ const [showMissing, setShowMissing] = useState(props.pet.missing)
 const toggleMissing = () => {
   let  missingToSend= 
 {id: props.pet.id,
-missing: props.pet.missing}
-
-  if (showMissing) {
-    setShowMissing(false);
-    missingToSend.missing = false;
-  } 
-  else {
-    setShowMissing(true);
-    missingToSend.missing = true;
-  }
-
-  dispatch({type: 'UPDATE_PETS', payload: missingToSend })
-  
-  dispatch({
-    type: 'FETCH_PETS',
-    payload: user.id
-});
+missing: !props.pet.missing}
+ dispatch({type: 'UPDATE_PETS', payload: missingToSend })
 }
-
-const isMissing = props.pet.missing;
 
   return (
     <div> 
@@ -61,7 +43,7 @@ const isMissing = props.pet.missing;
       <br/>
         <h3>Name: {props.pet.name}</h3>
         <p>Pet Description: {props.pet.description}</p>
-        <p>Missing?: {isMissing ? 'Yes': 'No'}<button onClick={toggleMissing}>Set Missing</button></p>
+        <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><button onClick={toggleMissing}>Set Missing</button></Link></p>
         <Link to="/details"><img onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>

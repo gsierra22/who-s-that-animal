@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const petRouter= require('./routes/pets.router')
 const trackRouter= require('./routes/track.router')
 const messageRouter=require('./routes/message.router')
+const missingRouter=require('./routes/missing.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter)
 app.use('/api/pets', petRouter)
 app.use('/api/track', trackRouter)
 app.use('/api/message', messageRouter)
+app.use('/api/missing', missingRouter)
 
 // Serve static files
 app.use(express.static('build'));

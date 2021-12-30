@@ -32,6 +32,8 @@ function* fetchAll() {
       
 }
 
+
+
 function *postPets( action ){
   //console.log( 'in *postSaga:', action );
   try {
@@ -57,7 +59,7 @@ console.log('in putSaga:', action.payload)
   try {
     const updatedTask = yield axios.put(`/api/pets/missing/${action.payload.id}?missing=${action.payload.missing}`);  
 
-    yield put({ type: 'FETCH_PETS', payload: action.payload.id });
+    //yield put({ type: 'FETCH_PETS', payload: action.payload.id });
 
   } catch (err) {
     console.log('update error', error);
