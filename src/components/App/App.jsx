@@ -23,6 +23,7 @@ import InputPet from '../InputPet/InputPet';
 import DeleteAnimals from '../DeleteAnimals/DeleteAnimals';
 import AllAnimals from '../AllAnimals/AllAnimals';
 import Missing from '../Missing/Missing';
+import DeleteTrack from './DeleteTrack/DeleteTrack';
 
 import './App.css';
 import AnimalDetails from '../AnimalDetails/AnimalDetails';
@@ -110,6 +111,14 @@ function App() {
             path="/missing"
           >
             <Missing/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyPets else shows LoginPage
+            exact
+            path="/deletetrack"
+          >
+            <DeleteTrack/>
           </ProtectedRoute>
 
           <Route

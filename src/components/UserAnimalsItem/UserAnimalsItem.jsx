@@ -12,19 +12,10 @@ function useAnimalsItem(props) {
 //     payload: props.pet.id });
 // };
 
-// const animalDetails = () => {
-//   console.log( 'in animalDetails', props.pet.id );
-//   //send dispatch to the store
-//   dispatch({
-//       type: 'SET_ID',
-//       payload: props.pet
-
-//   })
-//   dispatch({
-//       type: 'FETCH_TRACK',
-//       payload: props.pet.id
-//   })
-// }
+const storeTrackDelete = () => {
+  dispatch({ type: 'SET_DELETE',
+  payload: props.track });
+};
 
  
   return (
@@ -33,7 +24,7 @@ function useAnimalsItem(props) {
         <h3>{props.track.name}</h3>
         <p>{props.track.neighborhood}</p>
         <Link to="/details"><img src={props.track.photo} alt={props.track.catdog}  /></Link>
-        {/* <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link> */}
+        <Link to="/deletetrack"><button onClick={storeTrackDelete}>Delete Pet</button></Link>
     </div>
 </div>
   );

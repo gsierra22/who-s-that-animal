@@ -9,10 +9,10 @@ function MissingItem(props) {
 
   return (
     <div> 
-    <div key={props.pets.id} >
+    <div key={props.missing.id} >
       <br/>
-        <h3>Name: {props.pets.name}</h3>
-        <p>Pet Description: {props.pets.description}</p>
+        <h3>Name: {props.missing.name}</h3>
+        <p>Pet Description: {props.missing.description}</p>
     </div>
 </div>
   );

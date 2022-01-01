@@ -10,24 +10,25 @@ function Missing(props) {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const pets=useSelector((store)=>store.petsReducer);
-  const message=useSelector((store)=>store.messageReducer);
+  const missing=useSelector((store)=>store.missingReducer);
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   
-  if (pets.missing===true){
+
   useEffect(() => {
-    dispatch({ type: 'FETCH_ALL',
-                payload: user.id });
-}, []);}
+    dispatch({ type: 'FETCH_MISSING',
+                 });
+}, []);
 
 
 
   return (
     <div className="container">
       <h2>Missing Pets </h2>
+      {JSON.stringify(missing)}
       <p>{user.bio}</p>
       <h3>Name: {pets.name}</h3>
         <p>Pet Description: {pets.description}</p>
-        {pets.map(( pets )=>(  <MissingItem pets={pets}/>) )}
+        {missing.map(( missing )=>(  <MissingItem missing={missing}/>) )}
       <LogOutButton className="btn" />
     </div>
   );

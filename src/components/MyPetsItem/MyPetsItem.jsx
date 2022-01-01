@@ -26,10 +26,6 @@ const animalDetails = () => {
   })
 }
 
-
-
-const [showMissing, setShowMissing] = useState(props.pet.missing)
-
 const toggleMissing = () => {
   let  missingToSend= 
 {id: props.pet.id,
