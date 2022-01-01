@@ -11,7 +11,7 @@ function DeleteTrack(props)
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   
   const DeleteTrack = () => {
-    dispatch({ type: 'REMOVE_PETS',
+    dispatch({ type: 'REMOVE_TRACK',
     payload: deletePets });
 };
 

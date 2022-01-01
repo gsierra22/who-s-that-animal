@@ -27,7 +27,7 @@ router.get('/profile/:id', (req, res) => {
   console.log('req params here', req.params.id)
   // console.log('req query', req.query)
  //console.log(req.query)
- const queryText = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id FROM pets
+ const queryText = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id, description FROM pets
  JOIN "track" ON track.pets_id=pets.id
  WHERE track.user_id=$1`;
  pool.query(queryText, [req.params.id])
@@ -40,25 +40,6 @@ router.get('/profile/:id', (req, res) => {
    res.sendStatus(500)
  })
 });
-
-// router.get('/profile/:id', (req, res) => {
-//   console.log('req params', req.params)
-//   console.log('req query', req.query)
-//  //console.log(req.query)
-//  const profileQuery = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id FROM pets
-//  JOIN "user" ON pets.user_id= "user".id
-//  JOIN "track" ON track.pets_id=pets.id
-//  WHERE "user".id=$1`;
-//  pool.query(profileQuery, [req.params.id])
-//  .then (result => {
-//    console.log('then console')
-//    res.send(result.rows);
-//  })
-//  .catch(err =>{
-//    console.log('Unable to process tracker request', err)
-//    res.sendStatus(500)
-//  })
-// });
 
 /**
  * POST route template
@@ -74,6 +55,17 @@ router.get('/profile/:id', (req, res) => {
       console.log('Error completing SELECT plant query', err);
       res.sendStatus(500);
     });
+});
+
+router.delete('/delete/:id', (req, res) => {
+  const deletePets = `DELETE FROM track WHERE user_id=$1 AND pets_id=$1`;
+  values= [req.params.id]
+  pool.query(deletePets, values).then((result) => {
+      res.sendStatus(200);
+  }).catch((error) => {
+      console.log('Error DELETE /track/animals', error);
+      res.sendStatus(500);
+  })
 });
 
 module.exports = router;

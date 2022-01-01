@@ -15,7 +15,9 @@ function UserAnimals(props) {
     dispatch({ type: 'FETCH_PROFILE',
                 payload: {id: user.id,
                           name: track.name,
-                          photo:track.photo}});
+                          photo:track.photo,
+                          description: track.description,
+                          missing: track.missing}});
 
 }, []);
  

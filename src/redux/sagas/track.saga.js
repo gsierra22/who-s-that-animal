@@ -59,12 +59,22 @@ function *postTrack( action ){
   }
 }
 
+function *removeTrack( action ){
+  console.log( 'in *deleteTrackSaga:', action.payload );
+  try {
+    const response = yield axios.delete(`/api/track/delete/${action.payload}`);
+    yield put({type: 'FETCH_TRACK', payload: store.track.id})
+  } catch (err) {
+      console.log('error:', err);
+  }
+}
+
 
 function* trackSaga() {
   yield takeLatest('FETCH_TRACK', fetchTrack)
   yield takeLatest('FETCH_PROFILE', fetchProfile);
   yield takeLatest( 'ADD_TRACK', postTrack );
-  // yield takeLatest('REMOVE_PETS', removePets)
+  yield takeLatest('REMOVE_TRACK', removeTrack)
 }
 
 export default trackSaga;
