@@ -30,6 +30,7 @@ const dispatch = useDispatch();
       dates:'',
       neighborhood:'',
       photo:'',
+      missing_message:'',
       user_id: user.id
     });
 
@@ -84,6 +85,11 @@ const dispatch = useDispatch();
     //Similar to in redux -- we dont want to get rid of the id field when we update name
     setPet({...newPet, photo: event.target.value})
   }
+  const handleNewMessage = (event) => {
+    console.log('event happened');
+    //Similar to in redux -- we dont want to get rid of the id field when we update name
+    setPet({...newPet, missing_message: event.target.value})
+  }
 
 
   return (
@@ -128,6 +134,10 @@ const dispatch = useDispatch();
                 <br/>
                 <label>Enter the pet's photo</label>
                 <input type='text' className="image" placeholder='Photo' value={newPet.photo} onChange={handleNewPhoto} />
+
+                <br/>
+                <label>Enter your neighborhood</label>
+                <input type='text' placeholder='Message' value={newPet.missing_message} onChange={handleNewMessage} />
 
                 <Link to="/user"><button onClick={addNewPet}>Save</button></Link>
             </form>

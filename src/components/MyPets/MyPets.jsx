@@ -18,6 +18,7 @@ function MyPets(props) {
     <div className="container">
       <h2>Pets for {user.username}!</h2>
       <p>{user.bio}</p>
+      <Link to="/input"><button>Enter New Pet</button></Link>
       { pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}
       <LogOutButton className="btn" />
     </div>

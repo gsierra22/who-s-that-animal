@@ -18,9 +18,7 @@ function AllAnimals(props) {
 
   return (
     <div className="container">
-      <h2>Welcome to all, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>{user.bio}</p>
+      <h2>Welcome to the full list of animals, {user.username}!</h2>
       <div>
       { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>

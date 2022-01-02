@@ -19,11 +19,10 @@ function DeleteAnimals(props)
 
   return (
     <div className="container">
-      <h2>Are you sure you want to delete this animal?</h2>
+      <h2>Are you sure you want to delete this pet?</h2>
       <Link to="/user"><button onClick={DeleteAnimals}>Yes</button></Link>
       <Link to="/user"><button >No</button></Link>
-      <p>{JSON.stringify(deletePets)}
-      </p>
+
     </div>
   );
 }

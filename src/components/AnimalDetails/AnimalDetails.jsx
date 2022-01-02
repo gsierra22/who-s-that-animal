@@ -45,9 +45,9 @@ let [newTrack, setTrack] = useState(
   const isMissing = idr.missing;
   return (
     <div className="container">
-      <h2>Welcome, to {idr.name}'s  profile!</h2>
-      <p>Cat or Dog: {idr.catdog}</p>
+      <h2>Welcome to {idr.name}'s  profile!</h2>
       <img src={idr.photo} alt="No Photo"  />
+      <p>This pet is a {idr.catdog}</p>
       <p>Pet's Description: {idr.description}</p>
       <p>Home Neighborhood: {idr.neighborhood}</p>
       <p>Missing?: {isMissing ? 'Yes': 'No'}</p>

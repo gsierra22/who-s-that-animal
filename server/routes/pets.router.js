@@ -36,29 +36,16 @@ router.get('/all', (req, res) => {
 
 });
 
-/**
- * POST route template
- */
-//  router.post('/', (req, res) => {
-//   const queryString = `INSERT INTO "pets" (catdog, missing, description, location, date, neighborhood, photo, owner_id  ) VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 );`;
-//   values = [ req.body.catdog, req.body.missing, req.body.description, req.body.location, req.body.date, req.body.neighborhood, req.body.photo, req.body.owner_id ];
-//   pool.query( queryString, value).then( (results)=>{
-//     res.sendStatus( 200 );
-//   }).catch( (err)=>{
-//     console.log( err );
-//     res.sendStatus( 500 );
-//   })
-// });
 
 router.post('/', (req, res) => {
   //console.log(req.body);
   // RETURNING "id" will give us back the id of the created pet
-  const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, user_id  ) 
-  VALUES ( $1, $2, $3, $4, $5, $6, $7 ) RETURNING "id";
+  const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, missing_message, user_id) 
+  VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING "id";
   `
 
   // FIRST QUERY MAKES Pet
-  pool.query (insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.user_id])
+  pool.query (insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.missing_message, req.body.photo, req.body.user_id])
   .then(result => {
     //console.log("New Pet Id:", result.rows[0].id)
     const createdPetId = result.rows[0].id

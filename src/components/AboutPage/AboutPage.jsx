@@ -9,7 +9,10 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h1>Welcome to Who's that Animal!</h1>
+        <p>Ever seen a cute dog in your neighborhood or need help finding your pet? 
+          Who's that Animal allows users to input when and where they last saw an animal.
+          You could simply have fun listing all the pets in your neighborhood or you could post a missing pet add with your contact information in case your pet goes missing.</p>
       </div>
     </div>
   );
