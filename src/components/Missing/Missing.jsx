@@ -16,6 +16,7 @@ function Missing(props) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_MISSING',
+              payload: user.id
                  });
 }, []);
 

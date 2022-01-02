@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import Navbar from 'react-bootstrap/Navbar'
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  return (
+  return (<Navbar  bg="primary" variant="dark">
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">Prime Solo Project</h2>
@@ -49,6 +50,7 @@ function Nav() {
         </Link>
       </div>
     </div>
+    </Navbar>
   );
 }
 

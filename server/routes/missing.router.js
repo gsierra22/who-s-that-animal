@@ -7,7 +7,7 @@ const router = express.Router();
  */
  router.get('/', (req, res) => {
   console.log('arrive in router.get', req.body)
-    const query = `  SELECT * FROM pets
+    const query = `SELECT * FROM pets
     WHERE pets.missing=true;`;
     pool.query(query)
       .then( result => 

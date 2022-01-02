@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
+import { DataRowMessage } from 'pg-protocol/dist/messages';
 
 function UserAnimals(props) {
 
@@ -17,8 +18,8 @@ function UserAnimals(props) {
                           name: track.name,
                           photo:track.photo,
                           description: track.description,
-                          missing: track.missing}});
-
+                          missing: track.missing
+                        }});
 }, []);
  
   return (

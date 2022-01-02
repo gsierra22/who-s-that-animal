@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { checkPropTypes } from 'prop-types';
+import { Button } from 'react-bootstrap';
 
 function AnimalDetails(props) {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -58,8 +59,8 @@ let [newTrack, setTrack] = useState(
                 <br/>
                 <label>Enter the last known date seen</label>
                 <input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} />
-                <Link to="/user"><button onClick={addNewTrack}>Save</button></Link>
-      <button ><Link to="/user">Back</Link></button>
+                <Link to="/user"><Button onClick={addNewTrack}>Save</Button></Link>
+      <Button ><Link to="/user">Back</Link></Button>
     </div>
   );
 }
