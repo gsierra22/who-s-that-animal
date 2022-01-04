@@ -16,7 +16,7 @@ const router = express.Router();
     res.send(result.rows);
   })
   .catch(err =>{
-    console.log('Unable to process request')
+    console.log('Unable to process mypets request')
     res.sendStatus(500)
   })
 });
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
   `
 
   // FIRST QUERY MAKES Pet
-  pool.query (insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.missing_message, req.body.photo, req.body.user_id])
+  pool.query (insertPetQuery, [req.body.name, req.body.catdog, req.body.missing, req.body.description, req.body.neighborhood, req.body.photo, req.body.missing_message, req.body.user_id])
   .then(result => {
     //console.log("New Pet Id:", result.rows[0].id)
     const createdPetId = result.rows[0].id

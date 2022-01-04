@@ -5,7 +5,6 @@ import petsReducer from './pets.reducer';
 import deletePets from './deletepets.reducer';
 import trackReducer from './track.reducer';
 import idReducer from './id.reducer';
-import messageReducer from './message.reducer';
 import trackProfile from './profile.reducer';
 import missingReducer from './missing.reducer';
 
@@ -22,7 +21,6 @@ const rootReducer = combineReducers({
   deletePets,
   trackReducer,
   idReducer,
-  messageReducer,
   trackProfile,
   missingReducer
 });

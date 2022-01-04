@@ -34,7 +34,7 @@ router.get('/profile/:id', (req, res) => {
    res.send(result.rows);
  })
  .catch(err =>{
-   console.log('Unable to process tracker request', err)
+   console.log('Unable to process profile request', err)
    res.sendStatus(500)
  })
 });

@@ -136,10 +136,10 @@ const dispatch = useDispatch();
                 <input type='text' className="image" placeholder='Photo' value={newPet.photo} onChange={handleNewPhoto} />
 
                 <br/>
-                <label>Enter your neighborhood</label>
+                <label>Enter contact information in case your pet goes missing!</label>
                 <input type='text' placeholder='Message' value={newPet.missing_message} onChange={handleNewMessage} />
 
-                <Link to="/user"><button onClick={addNewPet}>Save</button></Link>
+                <Link to="/mypets"><button onClick={addNewPet}>Save</button></Link>
             </form>
       <button ><Link to="/user">Back</Link></button>
       <p>{JSON.stringify(track)}
