@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import { Button, Modal } from "react-bootstrap";
 
 function useAnimalsItem(props) {
   const dispatch = useDispatch();
@@ -24,6 +25,17 @@ const animalDetails = () => {
   })
 }
 
+const [show, setShow] = useState(false);
+
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
+
+const deleteButton = () => {
+  console.log("Delete Track:", props.track);
+  dispatch({ type: 'REMOVE_TRACK',
+              payload: props.track });
+};
+
  
   return (
     <div> 
@@ -31,7 +43,31 @@ const animalDetails = () => {
         <h3>{props.track.name}</h3>
         <p>{props.track.description}</p>
         <Link to="/details"><img className="animalImage" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
-        <Link to="/deletetrack"><button onClick={storeTrackDelete}>Delete Pet</button></Link>
+        <button onClick={handleShow}>Unfollow Pet</button>
+        <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="modalTitle">Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modalBody">
+          Are you sure you want to stop following {props.track.name}?
+        </Modal.Body>
+        <Modal.Footer className="modalFooter">
+          <Button
+            className="btn-secondary noButton"
+            onClick={handleClose}
+          >
+            No
+          </Button>
+          <Link to="/mypets"><Button className="YesButton" onClick={deleteButton}>
+            Yes
+          </Button></Link>
+        </Modal.Footer>
+      </Modal>
     </div>
 </div>
   );
