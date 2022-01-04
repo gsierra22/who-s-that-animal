@@ -23,7 +23,7 @@ function* fetchProfile (action) {
   // get all movies from the DB
   try {
       const profile = yield axios.get(`/api/track/profile/${action.payload.id}`);
-      console.log('get track:', profile.data);
+      console.log('get profile data:', profile.data);
       let existingIds = [];
       let newArray=[];
       for( let i=0; i < profile.data.length; i++ ){

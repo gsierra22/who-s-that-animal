@@ -26,7 +26,7 @@ router.get('/profile/:id', (req, res) => {
   console.log('req params here', req.params.id)
   // console.log('req query', req.query)
  //console.log(req.query)
- const queryText = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id, track.user_id, description FROM pets
+ const queryText = `SELECT * FROM pets
  JOIN "track" ON track.pets_id=pets.id
  WHERE track.user_id=$1`;
  pool.query(queryText, [req.params.id])

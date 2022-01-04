@@ -15,11 +15,7 @@ function UserAnimals(props) {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {
     dispatch({ type: 'FETCH_PROFILE',
-                payload: {id: user.id,
-                          name: track.name,
-                          photo:track.photo,
-                          description: track.description,
-                          missing: track.missing
+                payload: {id: user.id
                         }});
 }, []);
  

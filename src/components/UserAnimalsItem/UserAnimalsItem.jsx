@@ -19,8 +19,8 @@ const animalDetails = () => {
       payload: props.track
   })
   dispatch({
-      type: 'FETCH_PROFILE',
-      payload: props.track.id
+      type: 'FETCH_TRACK',
+      payload: props.track.pets_id
   })
 }
 
