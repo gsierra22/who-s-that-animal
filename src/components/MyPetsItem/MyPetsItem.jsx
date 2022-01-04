@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import userSaga from '../../redux/sagas/user.saga';
+import { Button, Modal } from "react-bootstrap";
 
 function MyPetsItem(props) {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-
-  const storeDelete = () => {
-    dispatch({ type: 'SET_DELETE',
-    payload: props.pet.id });
-};
 
 const animalDetails = () => {
   console.log( 'in animalDetails', props.pet.id );
@@ -25,6 +19,17 @@ const animalDetails = () => {
       payload: props.pet.id
   })
 }
+
+const [show, setShow] = useState(false);
+
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
+
+const deleteButton = () => {
+  console.log("Delete Pets:", props.pet.id);
+  dispatch({ type: 'REMOVE_PETS',
+              payload: props.pet.id });
+};
 
 const toggleMissing = () => {
   let  missingToSend= 
@@ -41,7 +46,31 @@ missing: !props.pet.missing}
         <p>Pet Description: {props.pet.description}</p>
         <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><button onClick={toggleMissing}>Set Missing</button></Link></p>
         <Link to="/details"><img className="animalImage" onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-        <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
+        <button onClick={handleShow}>Delete Pet</button>
+        <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="modalTitle">Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modalBody">
+          Are you sure you want to delete {props.pet.name}?
+        </Modal.Body>
+        <Modal.Footer className="modalFooter">
+          <Button
+            className="btn-secondary noButton"
+            onClick={handleClose}
+          >
+            No
+          </Button>
+          <Link to="/mypets"><Button className="YesButton" onClick={deleteButton}>
+            Yes
+          </Button></Link>
+        </Modal.Footer>
+      </Modal>
     </div>
 </div>
   );

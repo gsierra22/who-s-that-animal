@@ -5,7 +5,6 @@ import store from '../store';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchPets(action) {
   //console.log('Petstest')
-  // get all movies from the DB
   try {
     //console.log(action.payload)
       const pets = yield axios.get(`/api/pets/mypets/${action.payload}`);
@@ -13,7 +12,7 @@ function* fetchPets(action) {
       yield put({ type: 'SET_PETS', payload: pets.data });
 
   } catch (err) {
-      console.log('get all error', err);
+      console.log('get mypets error', err);
   }
       
 }

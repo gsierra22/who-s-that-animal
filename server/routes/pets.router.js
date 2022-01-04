@@ -89,6 +89,7 @@ router.put('/missing/:id', (req, res) => {
 
 
 router.delete('/delete/:id', (req, res) => {
+  console.log("my pets delete", req.params.id)
   const deletePets = `DELETE FROM pets WHERE id=$1`;
   values= [req.params.id]
   pool.query(deletePets, values).then((result) => {

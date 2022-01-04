@@ -20,10 +20,9 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InputPet from '../InputPet/InputPet';
-import DeleteAnimals from '../DeleteAnimals/DeleteAnimals';
 import AllAnimals from '../AllAnimals/AllAnimals';
 import Missing from '../Missing/Missing';
-import DeleteTrack from './DeleteTrack/DeleteTrack';
+import DeleteTrack from '../DeleteTrack/DeleteTrack';
 
 import './App.css';
 import AnimalDetails from '../AnimalDetails/AnimalDetails';
@@ -79,14 +78,6 @@ function App() {
             path="/input"
           >
             <InputPet/>
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows UserAnimals else shows LoginPage
-            exact
-            path="/delete"
-          >
-            <DeleteAnimals />
           </ProtectedRoute>
 
           <ProtectedRoute
