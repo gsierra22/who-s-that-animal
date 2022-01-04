@@ -35,12 +35,12 @@ missing: !props.pet.missing}
 
   return (
     <div> 
-    <div key={props.pet.id} >
+    <div className="petItem" key={props.pet.id} >
       <br/>
         <h3>Name: {props.pet.name}</h3>
         <p>Pet Description: {props.pet.description}</p>
         <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><button onClick={toggleMissing}>Set Missing</button></Link></p>
-        <Link to="/details"><img onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
+        <Link to="/details"><img className="animalImage" onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
         <Link to="/delete"><button onClick={storeDelete}>Delete Pet</button></Link>
     </div>
 </div>

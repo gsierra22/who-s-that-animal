@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { checkPropTypes } from 'prop-types';
 import { Button } from 'react-bootstrap';
+import "../AnimalDetails/AnimalDetails.css"
 
 function AnimalDetails(props) {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -44,13 +45,15 @@ let [newTrack, setTrack] = useState(
 
   const isMissing = idr.missing;
   return (
-    <div className="container">
-      <h2>Welcome to {idr.name}'s  profile!</h2>
-      <img src={idr.photo} alt="No Photo"  />
-      <p>This pet is a {idr.catdog}</p>
+    <div >
+      <h2 className="details">Welcome to {idr.name}'s  profile!</h2>
+      <img className="detailsImage" src={idr.photo} alt="No Photo"  />
+      <div className="traits">
+        <p>This pet is a {idr.catdog}</p>
       <p>Pet's Description: {idr.description}</p>
       <p>Home Neighborhood: {idr.neighborhood}</p>
       <p>Missing?: {isMissing ? 'Yes': 'No'}</p>
+      </div>
       {track.map( (track) => <div><p>Date Seen:{track.dates}</p><p>Location Seen:{track.location}</p></div>)}
       <br/>
                 <label>Enter the last known location description</label>

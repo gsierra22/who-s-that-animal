@@ -1,8 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
+
+  const signOutIcon= <FontAwesomeIcon icon={faSignOutAlt}/>
   return (
     <button
       // This button shows up in multiple locations and is styled differently
@@ -11,7 +15,7 @@ function LogOutButton(props) {
       className={props.className}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
-      Log Out
+      {signOutIcon}
     </button>
   );
 }

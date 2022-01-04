@@ -27,11 +27,10 @@ const animalDetails = () => {
  
   return (
     <div> 
-      {JSON.stringify(props.track.description)}
     <div key={props.track.description} >
         <h3>{props.track.name}</h3>
         <p>{props.track.description}</p>
-        <Link to="/details"><img onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
+        <Link to="/details"><img className="animalImage" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
         <Link to="/deletetrack"><button onClick={storeTrackDelete}>Delete Pet</button></Link>
     </div>
 </div>

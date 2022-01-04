@@ -3,15 +3,30 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
-import Navbar from 'react-bootstrap/Navbar'
+import Navbar from 'react-bootstrap/Navbar';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faHome,
+        faQuestionCircle,
+        faDog,
+        faListAlt,
+        faExclamationTriangle,
+        faPaw} from "@fortawesome/free-solid-svg-icons";
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  return (<Navbar  bg="primary" variant="dark">
+  const homeIcon= <FontAwesomeIcon icon={faHome}/>
+  const aboutIcon= <FontAwesomeIcon icon={faQuestionCircle}/>
+  const myPetsIcon= <FontAwesomeIcon icon={faDog}/>
+  const allAnimalsIcon= <FontAwesomeIcon icon={faListAlt}/>
+  const missingIcon= <FontAwesomeIcon icon={faExclamationTriangle}/>
+  const pawIcon= <FontAwesomeIcon icon={faPaw}/>
+  
+
+  return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">Who's that animal? {pawIcon}</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -26,19 +41,19 @@ function Nav() {
         {user.id && (
           <>
             <Link className="navLink" to="/user">
-              My Tracked Animals
+              {homeIcon}
             </Link>
 
             <Link className="navLink" to="/mypets">
-              My Pets
+              {myPetsIcon}
             </Link>
 
             <Link className="navLink" to="/all">
-              All Animals
+              {allAnimalsIcon}
             </Link>
 
             <Link className="navLink" to="/missing">
-              Missing Animals
+              {missingIcon}
             </Link>
 
             <LogOutButton className="navLink" />
@@ -46,11 +61,10 @@ function Nav() {
         )}
 
         <Link className="navLink" to="/about">
-          About
+        {aboutIcon}
         </Link>
       </div>
     </div>
-    </Navbar>
   );
 }
 

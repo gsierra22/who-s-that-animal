@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import MissingItem from '../MissingItem/MissingItem';
 import petsReducer from '../../redux/reducers/pets.reducer';
+import "../Missing/Missing.css"
 
 function Missing(props) {
 
@@ -25,11 +26,8 @@ function Missing(props) {
   return (
     <div className="container">
       <h2>Missing Pets </h2>
-      {JSON.stringify(missing)}
       <p>{user.bio}</p>
-      <h3>Name: {pets.name}</h3>
-        <p>Pet Description: {pets.description}</p>
-        {missing.map(( missing )=>(  <MissingItem missing={missing}/>) )}
+        <div className="missingCard">{missing.map(( missing )=>(  <MissingItem missing={missing}/>) )} </div>
       <LogOutButton className="btn" />
     </div>
   );

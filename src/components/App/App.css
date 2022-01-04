@@ -7,11 +7,19 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: rgb(209, 144, 3);
 }
 
 img {
   display: inline-block;
   max-width: 100%;
+}
+.animalImage {
+  display : flex;
+  border-radius: 25px;
+    flex-wrap: wrap;
+    max-width: 185px;
+    max-height: 258px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -21,6 +29,11 @@ Container
 .container {
   padding: 20px;
 }
+
+.trackContainer {
+  padding: 20px;
+}
+
 
 /* --------------------------------------------------------------------------------
 Button

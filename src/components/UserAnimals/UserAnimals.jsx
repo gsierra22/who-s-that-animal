@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
 import { DataRowMessage } from 'pg-protocol/dist/messages';
+import"../UserAnimals/UserAnimals.css"
 
 function UserAnimals(props) {
 
@@ -23,12 +24,12 @@ function UserAnimals(props) {
 }, []);
  
   return (
-    <div className="container">
+    <div className="trackContainer">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <p>{user.bio}</p>
       <h3>Animals that you previously tracked!</h3>
-      { track.map(( track)=>( <UserAnimalsItem track={track}/>) )}
+      <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
       <button ><Link to="/input">Input New Pet</Link></button>
       <LogOutButton className="btn" />
     </div>

@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import MyPetsItem from '../MyPetsItem/MyPetsItem';
+import "../MyPets/MyPets.css"
 
 function MyPets(props) {
 
@@ -19,7 +20,7 @@ function MyPets(props) {
       <h2>Pets for {user.username}!</h2>
       <p>{user.bio}</p>
       <Link to="/input"><button>Enter New Pet</button></Link>
-      { pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}
+      <div className="petCard">{ pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}</div>
       <LogOutButton className="btn" />
     </div>
   );

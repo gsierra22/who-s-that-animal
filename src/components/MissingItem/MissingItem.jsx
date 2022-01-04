@@ -28,7 +28,7 @@ function MissingItem(props) {
       <h3>{props.missing.name}</h3>
         <p>{props.missing.description}</p>
         <p>Contact Information: {props.missing.missing_message}</p>
-        <Link to="/details"> <img onClick={animalDetails} src={props.missing.photo} alt={props.missing.catdog}  /></Link>
+        <Link to="/details"> <img className="animalImage" onClick={animalDetails} src={props.missing.photo} alt={props.missing.catdog}  /></Link>
     </div>
 </div>
   );

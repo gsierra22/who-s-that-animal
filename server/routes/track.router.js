@@ -14,7 +14,6 @@ const router = express.Router();
  WHERE "pets".id=$1`;
  pool.query(queryText, [req.params.id])
  .then (result => {
-   console.log('then console')
    res.send(result.rows);
  })
  .catch(err =>{
@@ -27,12 +26,11 @@ router.get('/profile/:id', (req, res) => {
   console.log('req params here', req.params.id)
   // console.log('req query', req.query)
  //console.log(req.query)
- const queryText = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id, description FROM pets
+ const queryText = `SELECT track.location, track.dates, pets.name, pets.photo, pets_id, track.user_id, description FROM pets
  JOIN "track" ON track.pets_id=pets.id
  WHERE track.user_id=$1`;
  pool.query(queryText, [req.params.id])
  .then (result => {
-   console.log('then console')
    res.send(result.rows);
  })
  .catch(err =>{
@@ -58,12 +56,13 @@ router.get('/profile/:id', (req, res) => {
 });
 
 router.delete('/delete/:id', (req, res) => {
-  const deletePets = `DELETE FROM track WHERE user_id=$1 AND pets_id=$1`;
-  values= [req.params.id]
+  console.log('in delete', req.params, req.query)
+  const deletePets = `DELETE FROM track WHERE user_id=$1 AND pets_id=$2`;
+  const values=[req.query.user_id, req.params.id];
   pool.query(deletePets, values).then((result) => {
       res.sendStatus(200);
   }).catch((error) => {
-      console.log('Error DELETE /track/animals', error);
+      console.log('Error DELETE /track/delete', error);
       res.sendStatus(500);
   })
 });

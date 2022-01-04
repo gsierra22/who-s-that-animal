@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import AllAnimalsItem from '../AllAnimalsItem/AllAnimalsItem';
+import "../AllAnimals/AllAnimals.css"
 
 function AllAnimals(props) {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -19,7 +20,7 @@ function AllAnimals(props) {
   return (
     <div className="container">
       <h2>Welcome to the full list of animals, {user.username}!</h2>
-      <div>
+      <div className="animalCard">
       { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>
     </div>

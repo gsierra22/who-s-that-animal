@@ -26,7 +26,7 @@ function AllAnimalsItem(props) {
     <div key={props.pet} >
     <h3>{props.pet.name}</h3>
         <p>{props.pet.description}</p>
-        <Link to="/details"> <img onClick={animalDetails} src={props.pet.photo} alt={props.pet.catdog}  /></Link>
+        <Link to="/details"> <img className="animalImage" onClick={animalDetails} src={props.pet.photo} alt={props.pet.catdog}  /></Link>
     </div>
 </div>
   );

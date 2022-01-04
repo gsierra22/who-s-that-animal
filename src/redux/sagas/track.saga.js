@@ -60,10 +60,10 @@ function *postTrack( action ){
 }
 
 function *removeTrack( action ){
-  console.log( 'in *deleteTrackSaga:', action.payload );
+  console.log( 'in the first delete route', action.payload );
   try {
-    const response = yield axios.delete(`/api/track/delete/${action.payload}`);
-    yield put({type: 'FETCH_TRACK', payload: store.track.id})
+    const response = yield axios.delete(`/api/track/delete/${action.payload.pets_id}?user_id=${action.payload.user_id}`);
+    yield put({type: 'FETCH_PROFILE', payload: action.payload})
   } catch (err) {
       console.log('error:', err);
   }
