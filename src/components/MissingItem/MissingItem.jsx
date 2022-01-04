@@ -15,7 +15,7 @@ function MissingItem(props) {
   
     })
     dispatch({
-        type: 'FETCH_MISSING',
+        type: 'FETCH_TRACK',
         payload: props.missing.id
     })
   }
