@@ -21,13 +21,13 @@ function UserAnimals(props) {
  
   return (
     <div className="trackContainer">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>{user.bio}</p>
-      <h3>Animals that you previously tracked!</h3>
+      <h2 className="header">Welcome, {user.username}!</h2>
+      <p className="description">Your ID is: {user.id}</p>
+      <p className="description">{user.bio}</p>
+      <h3 className="header">Animals that you previously tracked!</h3>
       <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
-      <button ><Link to="/input">Input New Pet</Link></button>
-      <LogOutButton className="btn" />
+      <br/>
+      <div>Log out<LogOutButton className="btn" /></div>
     </div>
   );
 }

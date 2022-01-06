@@ -18,6 +18,7 @@ img {
   display : flex;
   border-radius: 25px;
     flex-wrap: wrap;
+    justify-content: space-around;
     max-width: 185px;
     max-height: 258px;
 }
@@ -51,6 +52,21 @@ Button
   outline: 0;
   cursor: pointer;
 }
+.button{
+  border-radius: 25px;
+  font-size: small;
+  min-height: 50px;
+  min-width: 100px;
+}
+
+.input-button{
+  border-radius: 25px;
+  font-size: small;
+  min-height: 50px;
+  min-width: 100px;
+  display : flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;}
 
 .btn_sizeMin {
   min-height: 50px;
@@ -72,6 +88,16 @@ Button
   text-decoration: none;
 }
 
+.button:hover {
+  background-color: #0d2bd3; /* Green */
+  color: white;
+}
+
+.input-button:hover {
+  background-color: #0d2bd3; /* Green */
+  color: white;
+}
+
 /* This line makes the "Register" and "Login" buttons look like links */
 .btn_asLink {
   padding: 0;
@@ -88,6 +114,17 @@ Button
   border-color: #008183;
   color: #008183;
 }
+
+/* --------------------------------------------------------------------------------
+Components
+-------------------------------------------------------------------------------- */
+.header{display : flex;
+        flex-wrap: wrap;
+        justify-content: center;}
+
+.description{display : flex;
+            flex-wrap: wrap;
+            justify-content: center;}
 
 /* --------------------------------------------------------------------------------
 Alert

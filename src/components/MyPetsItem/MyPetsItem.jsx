@@ -44,9 +44,9 @@ missing: !props.pet.missing}
       <br/>
         <h3>Name: {props.pet.name}</h3>
         <p>Pet Description: {props.pet.description}</p>
-        <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><button onClick={toggleMissing}>Set Missing</button></Link></p>
+        <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><Button className='button' onClick={toggleMissing}>Set Missing</Button></Link></p>
         <Link to="/details"><img className="animalImage" onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-        <button onClick={handleShow}>Delete Pet</button>
+        <Button className='button' onClick={handleShow}>Delete Pet</Button>
         <Modal
         show={show}
         onHide={handleClose}
@@ -66,7 +66,7 @@ missing: !props.pet.missing}
           >
             No
           </Button>
-          <Link to="/mypets"><Button className="YesButton" onClick={deleteButton}>
+          <Link to="/mypets"><Button className='button' onClick={deleteButton}>
             Yes
           </Button></Link>
         </Modal.Footer>

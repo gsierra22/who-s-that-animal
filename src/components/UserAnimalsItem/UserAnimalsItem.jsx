@@ -7,11 +7,6 @@ import { Button, Modal } from "react-bootstrap";
 function useAnimalsItem(props) {
   const dispatch = useDispatch();
 
-const storeTrackDelete = () => {
-  dispatch({ type: 'SET_DELETE',
-  payload: props.track });
-};
-
 const animalDetails = () => {
   console.log( 'in animalDetails', props.track.id );
   //send dispatch to the store
@@ -38,12 +33,12 @@ const deleteButton = () => {
 
  
   return (
-    <div> 
+    <div> {JSON.stringify(props.track.id)}
     <div key={props.track.description} >
         <h3>{props.track.name}</h3>
         <p>{props.track.description}</p>
-        <Link to="/details"><img className="animalImage" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
-        <button onClick={handleShow}>Unfollow Pet</button>
+        <Link to="/details" ><img className="animalImage" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
+        <Button className='button' onClick={handleShow}>Unfollow Pet</Button>
         <Modal
         show={show}
         onHide={handleClose}

@@ -25,8 +25,7 @@ function Missing(props) {
 
   return (
     <div className="container">
-      <h2>Missing Pets </h2>
-      <p>{user.bio}</p>
+      <h2 className="header">Missing Pets </h2>
         <div className="missingCard">{missing.map(( missing )=>(  <MissingItem missing={missing}/>) )} </div>
       <LogOutButton className="btn" />
     </div>

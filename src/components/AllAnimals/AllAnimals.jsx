@@ -19,7 +19,8 @@ function AllAnimals(props) {
 
   return (
     <div className="container">
-      <h2>Welcome to the full list of animals, {user.username}!</h2>
+      <h2 className="header">Welcome to the full list of animals, {user.username}!</h2>
+      <br/>
       <div className="animalCard">
       { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>

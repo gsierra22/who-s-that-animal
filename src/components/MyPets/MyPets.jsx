@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import { Button } from "react-bootstrap";
 import MyPetsItem from '../MyPetsItem/MyPetsItem';
 import "../MyPets/MyPets.css"
 
@@ -17,9 +18,9 @@ function MyPets(props) {
 }, []);
   return (
     <div className="container">
-      <h2>Pets for {user.username}!</h2>
-      <p>{user.bio}</p>
-      <Link to="/input"><button>Enter New Pet</button></Link>
+      <h2 className='header'>Pets for {user.username}!</h2>
+      <p className='description'>{user.bio}</p>
+      <Link to="/input"><Button className='input-button'>Enter New Pet</Button></Link>
       <div className="petCard">{ pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}</div>
       <LogOutButton className="btn" />
     </div>

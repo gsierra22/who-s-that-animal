@@ -50,7 +50,7 @@ router.get('/profile/:id', (req, res) => {
   pool.query(queryText, queryValues)
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
-      console.log('Error completing SELECT plant query', err);
+      console.log('Error completing SELECT track post query', err);
       res.sendStatus(500);
     });
 });
