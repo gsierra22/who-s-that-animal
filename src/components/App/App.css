@@ -35,6 +35,41 @@ Container
   padding: 20px;
 }
 
+/* --------------------------------------------------------------------------------
+Cards
+-------------------------------------------------------------------------------- */
+.full-card {display : flex;
+border-radius: 25px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-header {display : flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 185px;
+    max-height: 258px;}
+
+.card-text {display : flex;
+  border-radius: 25px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 185px;
+    max-height: 258px;}
+
+.card-footer {display : flex;
+  border-radius: 25px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 185px;
+    max-height: 258px;}
+
+.card-image {display : flex;
+  border-radius: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 185px;
+    max-height: 258px;}
 
 /* --------------------------------------------------------------------------------
 Button

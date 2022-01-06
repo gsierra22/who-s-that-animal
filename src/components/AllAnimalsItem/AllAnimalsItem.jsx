@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 function AllAnimalsItem(props) {
   const dispatch = useDispatch();
@@ -21,14 +22,19 @@ function AllAnimalsItem(props) {
   }
 
 
-  return (
-    <div> 
-    <div key={props.pet} >
+  return ( 
+    <div>
+    <Card className="full-card">
+      <Card.Header className="card-header">
     <h3>{props.pet.name}</h3>
-        <p>{props.pet.description}</p>
-        <Link to="/details"> <img className="animalImage" onClick={animalDetails} src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-    </div>
-</div>
+    </Card.Header>
+    <Link to="/details"> <Card.Img className="card-image" onClick={animalDetails} src={props.pet.photo} alt={props.pet.catdog}  /></Link>
+    <Card.Text className="card-text"> 
+    <p>{props.pet.description}</p>
+    </Card.Text>
+        </Card>
+        <br/>
+        </div>
   );
 }
 

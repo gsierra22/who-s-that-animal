@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Button, Modal } from "react-bootstrap";
+import Card from 'react-bootstrap/Card'
 
 function useAnimalsItem(props) {
   const dispatch = useDispatch();
@@ -35,10 +36,12 @@ const deleteButton = () => {
   return (
     <div> {JSON.stringify(props.track.id)}
     <div key={props.track.description} >
-        <h3>{props.track.name}</h3>
-        <p>{props.track.description}</p>
-        <Link to="/details" ><img className="animalImage" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
-        <Button className='button' onClick={handleShow}>Unfollow Pet</Button>
+      <Card className="full-card">
+       <Card.Header className="card-header"> <h3>{props.track.name}</h3></Card.Header>
+       <Card.Text className="card-text"> <p>{props.track.description}</p></Card.Text>
+        <Link to="/details" ><Card.Img className="card-image" onClick={animalDetails} src={props.track.photo} alt={props.track.catdog}  /></Link>
+        <Card.Footer className="card-footer"><Button className='button' onClick={handleShow}>Unfollow Pet</Button></Card.Footer>
+        </Card>
         <Modal
         show={show}
         onHide={handleClose}
@@ -58,7 +61,7 @@ const deleteButton = () => {
           >
             No
           </Button>
-          <Link to="/mypets"><Button className="YesButton" onClick={deleteButton}>
+          <Link to="/user"><Button className="YesButton" onClick={deleteButton}>
             Yes
           </Button></Link>
         </Modal.Footer>

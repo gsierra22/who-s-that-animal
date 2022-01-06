@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import { Button, Modal } from "react-bootstrap";
+import { Button, Card, Modal, ListGroup, ListGroupItem } from "react-bootstrap";
 
 function MyPetsItem(props) {
   const dispatch = useDispatch();
@@ -42,11 +42,22 @@ missing: !props.pet.missing}
     <div> 
     <div className="petItem" key={props.pet.id} >
       <br/>
-        <h3>Name: {props.pet.name}</h3>
-        <p>Pet Description: {props.pet.description}</p>
-        <p>Missing?: {props.pet.missing ? 'Yes': 'No'}<Link to="/mypets"><Button className='button' onClick={toggleMissing}>Set Missing</Button></Link></p>
-        <Link to="/details"><img className="animalImage" onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
-        <Button className='button' onClick={handleShow}>Delete Pet</Button>
+      <Card className="full-card">
+      <Card.Header className="card-header">
+        <h3>{props.pet.name}</h3>
+        </Card.Header>
+        <Link to="/details"><Card.Img className="card-image" onClick= {animalDetails}src={props.pet.photo} alt={props.pet.catdog}  /></Link>
+        <ListGroup variant="flush" className="card-text">
+        <ListGroup.Item><h4>Extra Information for this cute pet!</h4></ListGroup.Item>
+        <ListGroup.Item><p> {props.pet.description}</p>
+        <p>Missing?: {props.pet.missing ? 'Yes': 'No'}</p>
+        <Link to="/mypets"><Button className='button' onClick={toggleMissing}>Set Missing</Button></Link></ListGroup.Item>
+        </ListGroup>
+        <Card.Footer className="card-footer">
+        <Button className='button' onClick={handleShow}>Delete Pet</Button></Card.Footer>
+        </Card>
+        
+        
         <Modal
         show={show}
         onHide={handleClose}

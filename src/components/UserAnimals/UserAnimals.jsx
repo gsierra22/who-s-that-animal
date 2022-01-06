@@ -5,6 +5,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
 import { DataRowMessage } from 'pg-protocol/dist/messages';
 import"../UserAnimals/UserAnimals.css"
+import Card from 'react-bootstrap/Card'
 
 function UserAnimals(props) {
 
