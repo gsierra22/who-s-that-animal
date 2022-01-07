@@ -6,6 +6,7 @@ import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
 import { DataRowMessage } from 'pg-protocol/dist/messages';
 import"../UserAnimals/UserAnimals.css"
 import Card from 'react-bootstrap/Card'
+import trackProfile from '../../redux/reducers/profile.reducer';
 
 function UserAnimals(props) {
 
@@ -13,11 +14,15 @@ function UserAnimals(props) {
   const user = useSelector((store) => store.user);
   const pets=useSelector((store)=>store.petsReducer)
   const track=useSelector((store)=>store.trackProfile)
+  const basic=useSelector((store)=>store.trackModal)
+
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {
     dispatch({ type: 'FETCH_PROFILE',
                 payload: {id: user.id
-                        }});
+                        }},
+            );
+                        
 }, []);
  
   return (

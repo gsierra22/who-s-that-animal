@@ -53,11 +53,26 @@ function *postTrack( action ){
   //console.log( 'in *postTrack:', action );
   try {
     const response = yield axios.post('/api/track', action.payload);
-    yield put({type: 'FETCH_TRACK', payload: store.track.id})
+    yield put({type: 'FETCH_TRACK', payload: store.track})
   } catch (err) {
       console.log('error:', err);
   }
 }
+
+function* fetchTrackModal (action) {
+  console.log('TrackModal saga test', action.payload)
+  // get all movies from the DB
+  try {
+      const profile = yield axios.get(`/api/track/trackmodal/${action.payload.id}`);
+      console.log('get trackModal data:', profile.data);
+    yield put( { type: 'SET_TRACKMODAL', payload: profile.data } );
+
+  } catch (err) {
+      console.log('get profile error', err);
+  }
+      
+}
+
 
 function *removeTrack( action ){
   console.log( 'in the first delete route', action.payload );
@@ -75,6 +90,7 @@ function* trackSaga() {
   yield takeLatest('FETCH_PROFILE', fetchProfile);
   yield takeLatest( 'ADD_TRACK', postTrack );
   yield takeLatest('REMOVE_TRACK', removeTrack)
+  yield takeLatest('FETCH_TRACKMODAL', fetchTrackModal)
 }
 
 export default trackSaga;

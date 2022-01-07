@@ -39,6 +39,23 @@ router.get('/profile/:id', (req, res) => {
  })
 });
 
+router.get('/trackmodal/:id', (req, res) => {
+  console.log('req params here', req.params.id)
+  // console.log('req query', req.query)
+ //console.log(req.query)
+ const queryText = ` SELECT * FROM track
+ JOIN "pets" ON track.pets_id=pets.id
+ WHERE track.pets_id=$1`;
+ pool.query(queryText, [req.params.id])
+ .then (result => {
+   res.send(result.rows);
+ })
+ .catch(err =>{
+   console.log('Unable to process profile request', err)
+   res.sendStatus(500)
+ })
+});
+
 /**
  * POST route template
  */

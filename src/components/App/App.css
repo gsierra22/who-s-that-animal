@@ -41,7 +41,8 @@ Cards
 .full-card {display : flex;
 border-radius: 25px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin: auto;
 }
 
 .card-header {display : flex;
@@ -99,9 +100,9 @@ Button
   font-size: small;
   min-height: 50px;
   min-width: 100px;
-  display : flex !important;
-            flex-wrap: wrap !important;
-            justify-content: center !important;}
+  display : flex;
+            flex-wrap: wrap;
+            justify-content: center}
 
 .btn_sizeMin {
   min-height: 50px;
