@@ -12,9 +12,7 @@ function UserAnimals(props) {
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const pets=useSelector((store)=>store.petsReducer)
   const track=useSelector((store)=>store.trackProfile)
-  const basic=useSelector((store)=>store.trackModal)
 
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   useEffect(() => {

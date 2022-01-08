@@ -9,16 +9,7 @@ const dispatch = useDispatch();
   const pets=useSelector((store)=>store.petsReducer)
   const track=useSelector((store)=>store.trackReducer)
 
-  useEffect(() => {
-    dispatch({
-      type: 'FETCH_TRACK',
-      payload: user.id})
 
-      dispatch({
-        type: 'FETCH_PETS',
-        payload: pets.id
-    })
-  }, []);
 
 
   let [newPet, setPet] = useState( 

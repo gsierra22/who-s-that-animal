@@ -3,20 +3,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 import store from '../store';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchTrack(action) {
-  console.log('Track saga test')
-  // get all movies from the DB
-  try {
-    //console.log(action.payload)
-      const track = yield axios.get(`/api/track/tracker/${action.payload}`);
-      console.log('get track:', track.data);
-      yield put({ type: 'SET_TRACK', payload: track.data });
-
-  } catch (err) {
-      console.log('get track error', err);
-  }
-      
-}
 
 function* fetchProfile (action) {
   console.log('Track saga test', action.payload)
@@ -86,7 +72,6 @@ function *removeTrack( action ){
 
 
 function* trackSaga() {
-  yield takeLatest('FETCH_TRACK', fetchTrack)
   yield takeLatest('FETCH_PROFILE', fetchProfile);
   yield takeLatest( 'ADD_TRACK', postTrack );
   yield takeLatest('REMOVE_TRACK', removeTrack)

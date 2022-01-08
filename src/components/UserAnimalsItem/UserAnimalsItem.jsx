@@ -95,7 +95,7 @@ const isMissing = props.track.missing;
                 <br/>
                 <label>Enter the last known date seen</label>
                 <input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} />
-                <Link to="/mypets"><Button className="YesButton" onClick={addNewTrack}>
+                <Link to="/user"><Button className="YesButton" onClick={addNewTrack}>
             Yes
           </Button></Link>
                 </div>

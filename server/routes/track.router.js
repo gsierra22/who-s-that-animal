@@ -51,7 +51,7 @@ router.get('/trackmodal/:id', (req, res) => {
    res.send(result.rows);
  })
  .catch(err =>{
-   console.log('Unable to process profile request', err)
+   console.log('Unable to process trackmodal request', err)
    res.sendStatus(500)
  })
 });
