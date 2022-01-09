@@ -7,6 +7,7 @@ import { DataRowMessage } from 'pg-protocol/dist/messages';
 import"../UserAnimals/UserAnimals.css"
 import Card from 'react-bootstrap/Card'
 import trackProfile from '../../redux/reducers/profile.reducer';
+import { Container } from 'react-bootstrap';
 
 function UserAnimals(props) {
 
@@ -24,15 +25,22 @@ function UserAnimals(props) {
 }, []);
  
   return (
-    <div className="trackContainer">
+    <div>
+    <Container className="container">
       <h2 className="header">Welcome, {user.username}!</h2>
       <p className="description">Your ID is: {user.id}</p>
       <p className="description">{user.bio}</p>
+      </Container>
+      <br/>
+
+      <Container className="container">
       <h3 className="header">Animals that you previously tracked!</h3>
       <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
       <br/>
-      <div>Log out<LogOutButton className="btn" /></div>
-    </div>
+      <div className="log-out-div">Log out<LogOutButton className="log-out-button"/></div>
+      </Container>
+      </div>
+    
   );
 }
 

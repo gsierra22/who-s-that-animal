@@ -7,7 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  background-color: rgb(209, 144, 3);
+  background-color: #d6a400c9;
 }
 
 img {
@@ -31,8 +31,9 @@ Container
   padding: 20px;
 }
 
-.trackContainer {
+.container {
   padding: 20px;
+  background-color: blanchedalmond;
 }
 
 /* --------------------------------------------------------------------------------
@@ -42,28 +43,29 @@ Cards
 border-radius: 25px;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: auto;
+  margin: auto;;
 }
 
 .card-header {display : flex;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 185px;
-    max-height: 258px;}
+    max-height: 258px;
+    background-color: #0d2bd3;}
 
-.card-text {display : flex;
-  border-radius: 25px;
+.card-body {display : flex;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 185px;
-    max-height: 258px;}
+    background-color: #d6a400c9 ;}
 
 .card-footer {display : flex;
   border-radius: 25px;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: 185px;
-    max-height: 258px;}
+    max-height: 258px;
+    background-color: #0d2bd3;}
 
 .card-image {display : flex;
   border-radius: 25px;
@@ -76,17 +78,12 @@ border-radius: 25px;
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
+.log-out-div{display:flex;
+  flex-wrap: wrap;
+  justify-content: center;}
+
+.log-out-button{
+  font-size: xx-large;
 }
 .button{
   border-radius: 25px;
@@ -95,14 +92,6 @@ Button
   min-width: 100px;
 }
 
-.input-button{
-  border-radius: 25px;
-  font-size: small;
-  min-height: 50px;
-  min-width: 100px;
-  display : flex;
-            flex-wrap: wrap;
-            justify-content: center}
 
 .btn_sizeMin {
   min-height: 50px;
@@ -125,12 +114,12 @@ Button
 }
 
 .button:hover {
-  background-color: #0d2bd3; /* Green */
+  background-color: #d6a400c9; /* Green */
   color: white;
 }
 
 .input-button:hover {
-  background-color: #0d2bd3; /* Green */
+  background-color: #d6a400c9; /* Green */
   color: white;
 }
 

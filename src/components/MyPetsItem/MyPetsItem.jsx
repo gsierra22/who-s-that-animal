@@ -68,16 +68,17 @@ const isMissing = props.pet.missing;
       <br/>
       <Card className="full-card">
       <Card.Header className="card-header">
-        {JSON.stringify(props.pet.id)}
         <h3>{props.pet.name}</h3>
         </Card.Header>
+        <Card.Body className="card-body">
         <Card.Img className="card-image" onClick= {modalInfo}src={props.pet.photo} alt={props.pet.catdog}/>
-        <ListGroup variant="flush" className="card-text">
+        <ListGroup variant="flush" >
         <ListGroup.Item><h4>Extra Information for this cute pet!</h4></ListGroup.Item>
         <ListGroup.Item><p> {props.pet.description}</p>
         <p>Missing?: {props.pet.missing ? 'Yes': 'No'}</p>
         <Link to="/mypets"><Button className='button' onClick={toggleMissing}>{props.pet.missing ? 'Set as not missing':'Set as missing'}</Button></Link></ListGroup.Item>
         </ListGroup>
+        </Card.Body>
         <Card.Footer className="card-footer">
         <Button className='button' onClick={handleShow}>Delete Pet</Button></Card.Footer>
         </Card>

@@ -61,12 +61,14 @@ const isMissing = props.track.missing;
 
  
   return (
-    <div className='full-card'> 
+    <div > 
     <div   key={props.track.description} >
       <Card className="full-card">
        <Card.Header className="card-header"> <h3>{props.track.name}</h3></Card.Header>
-       <Card.Text className="card-text"> <p>{props.track.description}</p></Card.Text>
+       <Card.Body className="card-body">
         <Card.Img className="card-image" onClick={modalInfo} src={props.track.photo} alt={props.track.catdog}/>
+        <Card.Text > <p>{props.track.description}</p></Card.Text>
+        </Card.Body>
         <Card.Footer className="card-footer"><Button className='button' onClick={handleShow}>Unfollow Pet</Button></Card.Footer>
         </Card>
 
@@ -82,7 +84,7 @@ const isMissing = props.track.missing;
       <h2 className="details">Welcome to {props.track.name}'s  profile!</h2>
       <img className="detailsImage" src={props.track.photo} alt="No Photo"  />
       <div className="traits">
-        <p>This track is a {props.track.catdog}</p>
+        <p>This pet is a {props.track.catdog}</p>
       <p>Pet's Description: {props.track.description}</p>
       <p>Home Neighborhood: {props.track.neighborhood}</p>
       <p>Missing?: {isMissing ? 'Yes': 'No'}</p>

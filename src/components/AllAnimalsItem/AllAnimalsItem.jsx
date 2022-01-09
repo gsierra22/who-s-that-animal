@@ -55,10 +55,11 @@ const isMissing = props.pet.missing;
       <Card.Header className="card-header">
     <h3>{props.pet.name}</h3>
     </Card.Header>
+    <Card.Body>
      <Card.Img className="card-image" onClick={modalInfo} src={props.pet.photo} alt={props.pet.catdog}  />
     <Card.Text className="card-text"> 
     <p>{props.pet.description}</p>
-    </Card.Text>
+    </Card.Text></Card.Body>
         </Card>
 
         <Modal

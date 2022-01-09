@@ -1,3 +1,13 @@
 .petCard{display:flex;
     flex-wrap: wrap;
     justify-content: space-around;}
+
+.input-div{display: flex;
+    flex-wrap: wrap;
+    justify-content: center;}
+
+    .input-button{
+        border-radius: 25px;
+        font-size: small;
+        min-height: 50px;
+        min-width: 100px;}

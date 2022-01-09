@@ -6,7 +6,6 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 function InputPet() {
 const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const pets=useSelector((store)=>store.petsReducer)
   const track=useSelector((store)=>store.trackReducer)
 
 
@@ -25,9 +24,9 @@ const dispatch = useDispatch();
       user_id: user.id
     });
 
-    const addNewPet = event => {
-      dispatch({ type: 'ADD_PETS', payload: newPet });
-  }
+  //   const addNewPet = event => {
+  //     dispatch({ type: 'ADD_PETS', payload: newPet });
+  // }
 
   const handleNewName = (event) => {
     console.log('event happened');
@@ -133,8 +132,6 @@ const dispatch = useDispatch();
                 <Link to="/mypets"><button onClick={addNewPet}>Save</button></Link>
             </form>
       <button ><Link to="/user">Back</Link></button>
-      <p>{JSON.stringify(track)}
-      </p>
     </div>
   );
 }
