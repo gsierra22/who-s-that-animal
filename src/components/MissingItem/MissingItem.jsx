@@ -3,8 +3,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Modal, Button, Table } from 'react-bootstrap';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPaw} from "@fortawesome/free-solid-svg-icons";
 
 function MissingItem(props) {
+  const pawIcon= <FontAwesomeIcon icon={faPaw}/>
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
@@ -54,15 +57,21 @@ const isMissing = props.missing.missing;
       <br/>
       <Card className="full-card">
       <Card.Header className="card-header">
-      <h3>{props.missing.name}</h3>
-      </Card.Header>
-      <Card.Img className="card-image" onClick={modalInfo} src={props.missing.photo} alt={props.missing.catdog}  />
-      <ListGroup variant="flush" className="card-text">
-        <ListGroup.Item>
-        <p>{props.missing.description}</p></ListGroup.Item>
-        <ListGroup.Item><p>Contact Information: {props.missing.missing_message}</p></ListGroup.Item>
-        </ListGroup>
-    </Card>
+    <h3>{props.missing.name}</h3>
+    </Card.Header>
+    <Card.Body>
+     <Card.Img className="card-image" onClick={modalInfo} src={props.missing.photo} alt={props.missing.catdog}  />
+     <ListGroup variant="flush" >
+       <ListGroup.Item>
+    <Card.Text className="card-text"> 
+    <p>{props.missing.description}</p>
+    </Card.Text>
+    <Card.Text>Contact Information:{props.missing.missing_message}</Card.Text>
+    </ListGroup.Item>
+    </ListGroup>
+    </Card.Body>
+    <Card.Footer className="card-paw-footer">{pawIcon}{pawIcon}{pawIcon}</Card.Footer>
+        </Card>
 
     <Modal
           show={show}

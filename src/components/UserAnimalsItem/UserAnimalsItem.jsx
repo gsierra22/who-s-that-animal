@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import { Button, Modal,Table } from "react-bootstrap";
+import { Button, Modal,Table, ListGroup} from "react-bootstrap";
 import Card from 'react-bootstrap/Card'
 import trackModal from '../../redux/reducers/trackmodal.reducer';
 
@@ -67,10 +67,13 @@ const isMissing = props.track.missing;
        <Card.Header className="card-header"> <h3>{props.track.name}</h3></Card.Header>
        <Card.Body className="card-body">
         <Card.Img className="card-image" onClick={modalInfo} src={props.track.photo} alt={props.track.catdog}/>
-        <Card.Text > <p>{props.track.description}</p></Card.Text>
+        <ListGroup variant="flush" >
+        <ListGroup.Item><Card.Text > <p>{props.track.description}</p></Card.Text></ListGroup.Item>
+        </ListGroup>
         </Card.Body>
         <Card.Footer className="card-footer"><Button className='button' onClick={handleShow}>Unfollow Pet</Button></Card.Footer>
         </Card>
+        <br/>
 
         <Modal
           show={profileShow}

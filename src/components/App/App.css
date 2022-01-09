@@ -89,6 +89,18 @@ Cards
   background-color: #0d2bd3;
 }
 
+.card-paw-footer {
+  display: flex;
+  border-radius: 25px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 185px;
+  max-height: 258px;
+  background-color: #0d2bd3;
+  color: #e67e08;
+  font-size: xx-large;
+}
+
 .card-image {
   display: flex;
   border-radius: 25px;
@@ -110,6 +122,11 @@ Button
 
 .log-out-button {
   font-size: xx-large;
+}
+
+.log-out-button:hover {
+  background-color: #0d2bd3; /* Green */
+  color: white;
 }
 .button {
   border-radius: 25px;

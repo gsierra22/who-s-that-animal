@@ -24,6 +24,7 @@ function AllAnimals(props) {
       <div className="animalCard">
       { pets.map(( pet )=>( <AllAnimalsItem pet={pet}/>) )}
       </div>
+      <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
     </div>
   );
 }

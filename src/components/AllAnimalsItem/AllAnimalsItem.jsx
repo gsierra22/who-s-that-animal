@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import { Card, Modal, Button, Table} from 'react-bootstrap';
+import { Card, Modal, Button, Table, ListGroup} from 'react-bootstrap';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPaw} from "@fortawesome/free-solid-svg-icons";
 
 function AllAnimalsItem(props) {
+  const pawIcon= <FontAwesomeIcon icon={faPaw}/>
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
@@ -57,9 +60,14 @@ const isMissing = props.pet.missing;
     </Card.Header>
     <Card.Body>
      <Card.Img className="card-image" onClick={modalInfo} src={props.pet.photo} alt={props.pet.catdog}  />
+     <ListGroup variant="flush" >
+       <ListGroup.Item>
     <Card.Text className="card-text"> 
     <p>{props.pet.description}</p>
-    </Card.Text></Card.Body>
+    </Card.Text></ListGroup.Item>
+    </ListGroup>
+    </Card.Body>
+    <Card.Footer className="card-paw-footer">{pawIcon}{pawIcon}{pawIcon}</Card.Footer>
         </Card>
 
         <Modal
