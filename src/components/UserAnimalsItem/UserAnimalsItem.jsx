@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal,Table } from "react-bootstrap";
 import Card from 'react-bootstrap/Card'
 import trackModal from '../../redux/reducers/trackmodal.reducer';
 
@@ -73,37 +73,56 @@ const isMissing = props.track.missing;
         </Card>
 
         <Modal
-        show={profileShow}
-        onHide={handleProfileClose}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="modalTitle">Profile</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="modalBody">
-        <div >
-      <h2 className="details">Welcome to {props.track.name}'s  profile!</h2>
-      <img className="detailsImage" src={props.track.photo} alt="No Photo"  />
-      <div className="traits">
-        <p>This pet is a {props.track.catdog}</p>
-      <p>Pet's Description: {props.track.description}</p>
-      <p>Home Neighborhood: {props.track.neighborhood}</p>
-      <p>Missing?: {isMissing ? 'Yes': 'No'}</p>
-      </div>
-      {trackModal.map( (track) => <div><p>Date Seen:{track.dates}</p><p>Location Seen:{track.location}</p></div>)}
-      <br/>
-                <label>Enter the last known location description</label>
-                <input type='text' placeholder='Location' value={newTrack.location} onChange={handleNewLocation} />
-                
-                <br/>
-                <label>Enter the last known date seen</label>
-                <input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} />
-                <Link to="/user"><Button className="YesButton" onClick={addNewTrack}>
-            Yes
-          </Button></Link>
+          show={profileShow}
+          onHide={handleProfileClose}
+        >
+          <Modal.Header className="modal-title" closeButton>
+            <Modal.Title className="modal-title">Welcome to {props.track.name}'s  profile!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modalBody">
+              <center className="modal-image">
+                <img src={props.track.photo} alt="No Photo" />
+              </center>
+              <div className="traits">
+                <p>This pet is a {props.track.catdog}</p>
+                <p>Pet's Description: {props.track.description}</p>
+                <p>Home Neighborhood: {props.track.neighborhood}</p>
+                <p>Missing?: {isMissing ? 'Yes' : 'No'}</p>
+              </div>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Location Seen</th>
+                    <th>Date Seen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {trackModal.map((track) => (<tr><td>{track.location}</td><td>{track.dates}</td></tr>))}
+                </tbody>
+              </Table>
+              <br />
+              <div className='sight-input'>
+                <div>
+                  <div><h1 className='modal-header'>Enter the last known location description</h1></div>
+                  <div><center><input type='text' placeholder='Location' value={newTrack.location} onChange={handleNewLocation} /></center></div>
+                  </div>
+                  <div>
+                  <div><h1 className='modal-header'>Enter the last known date seen</h1>
+                  <center><input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} /></center>
+                  </div>
+                <div className="submit-track-button">
+                  <Link to="/mypets">
+                    <Button className="submit-track-button" onClick={addNewTrack}>
+                      Enter New Sighting
+                    </Button>
+                  </Link>
                 </div>
-        </Modal.Body>
-        
-      </Modal>
+              </div>
+              
+            </div>
+          </Modal.Body>
+
+        </Modal>
 
         <Modal
         show={show}

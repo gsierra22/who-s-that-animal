@@ -1,14 +1,19 @@
-.details {display:flex;
-    flex-wrap: wrap;
-    justify-content: center;}
-    .detailsImage {
-        display : flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        max-width: 185px;
-        max-height: 258px;
-        border-radius: 25px;
-      }
-      .traits{display:flex;
-        flex-wrap: wrap;
-        justify-content: space-between;}
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detailsImage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 185px;
+  max-height: 258px;
+  border-radius: 25px;
+}
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

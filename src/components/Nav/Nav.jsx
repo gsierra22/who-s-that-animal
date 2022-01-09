@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
-import Navbar from 'react-bootstrap/Navbar';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHome,
         faQuestionCircle,
@@ -11,6 +10,7 @@ import {faHome,
         faListAlt,
         faExclamationTriangle,
         faPaw} from "@fortawesome/free-solid-svg-icons";
+import appLogo from "../../images/whosthatanimal-logo.png";
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -26,7 +26,8 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Who's that animal? {pawIcon}</h2>
+        {/* <h2 className="nav-title">Who's that animal? {pawIcon}</h2> */}
+        <img className="app-logo" src={appLogo}/>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
