@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET routes
  */
  router.get('/tracker/:id', (req, res) => {
   // console.log('req params', req.params)
@@ -57,7 +57,7 @@ router.get('/trackmodal/:id', (req, res) => {
 });
 
 /**
- * POST route template
+ * POST routes
  */
  router.post('/', (req, res) => {
   const queryText = `INSERT INTO "track" (pets_id, dates, location, user_id)
@@ -72,6 +72,9 @@ router.get('/trackmodal/:id', (req, res) => {
     });
 });
 
+/**
+ * DELETE route
+ */
 router.delete('/delete/:id', (req, res) => {
   console.log('in delete', req.params, req.query)
   const deletePets = `DELETE FROM track WHERE user_id=$1 AND pets_id=$2`;

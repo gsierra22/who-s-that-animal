@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET route
  */
  router.get('/', (req, res) => {
   console.log('arrive in router.get', req.body)
@@ -22,7 +22,7 @@ const router = express.Router();
   });
 
 /**
- * POST route template
+ * POST route
  */
 router.post('/', (req, res) => {
   // POST route code here

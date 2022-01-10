@@ -123,55 +123,57 @@ const handleNewMessage = (event) => {
         <form onSubmit={addNewPet}>
         <Modal.Body className="modalBody">
         <br/>
-                <label>Enter your pet's name</label>
-                <input type='text' placeholder='Name' value={newPet.name} onChange={handleNewName} />
+                <center><label>Enter your pet's name</label></center>
+                <center><input type='text' placeholder='Name' value={newPet.name} onChange={handleNewName} /></center>
 
                 <br/>
-              <label>Cat or Dog?</label>
-                <select type='text' placeholder='Cat or Dog' value={newPet.catdog} onChange={handleNewCatdog} >
+              <center><label>Cat or Dog?</label></center>
+                <center><select type='text' placeholder='Cat or Dog' value={newPet.catdog} onChange={handleNewCatdog} >
                   <option value={'Cat'}>Cat</option>
                   <option value={'Dog'}>Dog</option>
-                  </select>
+                  </select></center>
 
                   <br/>
-                <label>Is your pet missing?</label>
-                <select value={newPet.missing} placeholder='Missing' onChange={( event )=>handleNewMissing( event )}>
+                <center><label>Is your pet missing?</label></center>
+               <center> <select value={newPet.missing} placeholder='Missing' onChange={( event )=>handleNewMissing( event )}>
                   <option value={true}>Yes</option>
                   <option value={false}>No</option>
-                </select>
+                </select></center>
 
                 <br/>
-                <label>Enter your pet's description</label>
-                <input type='text' placeholder='Description' value={newPet.description} onChange={handleNewDescription} />
+               <center> <label>Enter your pet's description</label></center>
+                <center><input type='text' placeholder='Description' value={newPet.description} onChange={handleNewDescription} /></center>
+                
+                <br/>
+                <center><label>Enter your neighborhood</label></center>
+                <center><input type='text' placeholder='Neighborhood' value={newPet.neighborhood} onChange={handleNewNeighborhood} /></center>
+                
+                <br/>
+                <center><label>Enter the pet's photo</label></center>
+                <center><input type='text' className="image" placeholder='Photo' value={newPet.photo} onChange={handleNewPhoto} /></center>
 
                 <br/>
-                <label>Enter the last known location description</label>
-                <input type='text' placeholder='Location' value={newPet.location} onChange={handleNewLocation} />
+                <center><label>Description of last known location</label></center>
+                <center><input type='text' placeholder='Location' value={newPet.location} onChange={handleNewLocation} /></center>
                 
                 <br/>
-                <label>Enter the last known date seen</label>
-                <input type='text' placeholder='Date' value={newPet.dates} onChange={handleNewDate} />
-                
-                <br/>
-                <label>Enter your neighborhood</label>
-                <input type='text' placeholder='Neighborhood' value={newPet.neighborhood} onChange={handleNewNeighborhood} />
-                
-                <br/>
-                <label>Enter the pet's photo</label>
-                <input type='text' className="image" placeholder='Photo' value={newPet.photo} onChange={handleNewPhoto} />
+                <center><label>Enter the last known date seen</label></center>
+                <center><input type='text' placeholder='Date' value={newPet.dates} onChange={handleNewDate} /></center>
 
                 <br/>
-                <label>Enter contact information in case your pet goes missing!</label>
-                <input type='text' placeholder='Message' value={newPet.missing_message} onChange={handleNewMessage} />
+                <center><label>Enter contact information in case your pet goes missing!</label></center>
+                <center><input type='text' placeholder='Message' value={newPet.missing_message} onChange={handleNewMessage} /></center>
         </Modal.Body>
         <Modal.Footer className="modalFooter">
           <Button
-            className="btn-secondary noButton"
+            className="no-button"
             onClick={handleInputClose}
           >
             Back
           </Button>
-          <Link to="/mypets"><Button onClick={addNewPet}>Save</Button></Link>
+          <Link to="/mypets">
+            <Button className="yes-button" onClick={addNewPet}>Save</Button>
+            </Link>
         </Modal.Footer></form>
       </Modal>
     </div>

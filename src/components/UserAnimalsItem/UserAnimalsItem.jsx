@@ -68,7 +68,10 @@ const isMissing = props.track.missing;
        <Card.Body className="card-body">
         <Card.Img className="card-image" onClick={modalInfo} src={props.track.photo} alt={props.track.catdog}/>
         <ListGroup variant="flush" >
-        <ListGroup.Item><Card.Text > <p>{props.track.description}</p></Card.Text></ListGroup.Item>
+        <ListGroup.Item>
+        <center><Card.Text className="contact-header">Description</Card.Text></center>
+          <Card.Text > <p>{props.track.description}</p></Card.Text>
+          </ListGroup.Item>
         </ListGroup>
         </Card.Body>
         <Card.Footer className="card-footer"><Button className='button' onClick={handleShow}>Unfollow Pet</Button></Card.Footer>
@@ -113,12 +116,12 @@ const isMissing = props.track.missing;
                   <div><h1 className='modal-header'>Enter the last known date seen</h1>
                   <center><input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} /></center>
                   </div>
-                <div className="submit-track-button">
-                  <Link to="/mypets">
+                <div>
+                  <center><Link to="/mypets">
                     <Button className="submit-track-button" onClick={addNewTrack}>
                       Enter New Sighting
                     </Button>
-                  </Link>
+                  </Link></center>
                 </div>
               </div>
               
@@ -139,12 +142,12 @@ const isMissing = props.track.missing;
         </Modal.Body>
         <Modal.Footer className="modalFooter">
           <Button
-            className="btn-secondary noButton"
+            className="no-button"
             onClick={handleClose}
           >
             No
           </Button>
-          <Link to="/user"><Button className="YesButton" onClick={deleteButton}>
+          <Link to="/user"><Button className="yes-button" onClick={deleteButton}>
             Yes
           </Button></Link>
         </Modal.Footer>

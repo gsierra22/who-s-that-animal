@@ -24,7 +24,7 @@ import AllAnimals from '../AllAnimals/AllAnimals';
 import Missing from '../Missing/Missing';
 
 import './App.css';
-import AnimalDetails from '../AnimalDetails/AnimalDetails';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -62,13 +62,6 @@ function App() {
             path="/user"
           >
             <UserAnimals />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path="/details"
-          >
-            <AnimalDetails />
           </ProtectedRoute>
 
           <ProtectedRoute

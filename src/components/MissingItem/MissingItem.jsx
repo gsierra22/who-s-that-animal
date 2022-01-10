@@ -5,6 +5,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Modal, Button, Table } from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaw} from "@fortawesome/free-solid-svg-icons";
+import "../Missing/Missing.css"
 
 function MissingItem(props) {
   const pawIcon= <FontAwesomeIcon icon={faPaw}/>
@@ -63,10 +64,12 @@ const isMissing = props.missing.missing;
      <Card.Img className="card-image" onClick={modalInfo} src={props.missing.photo} alt={props.missing.catdog}  />
      <ListGroup variant="flush" >
        <ListGroup.Item>
+       <center><Card.Text className="contact-header">Description</Card.Text></center>
     <Card.Text className="card-text"> 
     <p>{props.missing.description}</p>
     </Card.Text>
-    <Card.Text>Contact Information:{props.missing.missing_message}</Card.Text>
+    <center><Card.Text className="contact-header">Contact Information</Card.Text></center>
+    <Card.Text>{props.missing.missing_message}</Card.Text>
     </ListGroup.Item>
     </ListGroup>
     </Card.Body>
@@ -111,12 +114,14 @@ const isMissing = props.missing.missing;
                   <div><h1 className='modal-header'>Enter the last known date seen</h1>
                   <center><input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} /></center>
                   </div>
-                <div className="submit-track-button">
+                <div>
+                  <center>
                   <Link to="/all">
                     <Button className="submit-track-button" onClick={addNewTrack}>
                       Enter New Sighting
                     </Button>
                   </Link>
+                  </center>
                 </div>
               </div>
               

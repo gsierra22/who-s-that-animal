@@ -62,6 +62,7 @@ const isMissing = props.pet.missing;
      <Card.Img className="card-image" onClick={modalInfo} src={props.pet.photo} alt={props.pet.catdog}  />
      <ListGroup variant="flush" >
        <ListGroup.Item>
+       <center><Card.Text className="contact-header">Description</Card.Text></center>
     <Card.Text className="card-text"> 
     <p>{props.pet.description}</p>
     </Card.Text></ListGroup.Item>
@@ -108,12 +109,14 @@ const isMissing = props.pet.missing;
                   <div><h1 className='modal-header'>Enter the last known date seen</h1>
                   <center><input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} /></center>
                   </div>
-                <div className="submit-track-button">
+                <div >
+                  <center>
                   <Link to="/all">
                     <Button className="submit-track-button" onClick={addNewTrack}>
                       Enter New Sighting
                     </Button>
                   </Link>
+                  </center>
                 </div>
               </div>
               

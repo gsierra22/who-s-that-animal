@@ -3,7 +3,6 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import petsReducer from './pets.reducer';
 import trackReducer from './track.reducer';
-import idReducer from './id.reducer';
 import trackProfile from './profile.reducer';
 import missingReducer from './missing.reducer';
 import trackModal from './trackmodal.reducer';
@@ -19,7 +18,6 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   petsReducer,
   trackReducer,
-  idReducer,
   trackProfile,
   missingReducer,
   trackModal

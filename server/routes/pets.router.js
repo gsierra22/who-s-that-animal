@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET routes
  */
  router.get('/mypets/:id', (req, res) => {
    //console.log('hello')
@@ -36,7 +36,9 @@ router.get('/all', (req, res) => {
 
 });
 
-
+/**
+ * POST routes
+ */
 router.post('/', (req, res) => {
   //console.log(req.body);
   // RETURNING "id" will give us back the id of the created pet
@@ -73,7 +75,9 @@ router.post('/', (req, res) => {
 })
 
 
-
+/**
+ * PUT route
+ */
 router.put('/missing/:id', (req, res) => {
   const queryString = `UPDATE "pets" SET missing=$1 WHERE id=${req.params.id};`;
   console.log(req.query)
@@ -87,7 +91,9 @@ router.put('/missing/:id', (req, res) => {
   })
 });
 
-
+/**
+ * DELEtE route
+ */
 router.delete('/delete/:id', (req, res) => {
   console.log("my pets delete", req.params.id)
   const deletePets = `DELETE FROM pets WHERE id=$1`;

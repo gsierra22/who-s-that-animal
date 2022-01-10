@@ -10,9 +10,14 @@ function AboutPage() {
     <div className="container">
       <div>
         <h1>Welcome to Who's that Animal!</h1>
-        <p>Ever seen a cute dog in your neighborhood or need help finding your pet? 
-          Who's that Animal allows users to input when and where they last saw an animal.
-          You could simply have fun listing all the pets in your neighborhood or you could post a missing pet add with your contact information in case your pet goes missing.</p>
+        <p>This is the solo project completed by Giancarlo Sierra for Prime Digital Academy.</p>
+        <h1>Technologies Used</h1>
+        <p>Javascript, CSS, HTML, Bootstrap, Node.js, Express, React, Redux Saga</p>
+        <h1>Thanks</h1>
+        <p>I would like to thank our instructor, Dev Jana, and Casey Siekman, a Prime alum for helping us in our projects and past assignments
+          I would also like to thank Hannah Fligel for designing the app logo and the ionian cohort for supporting each other during our time at Prime.
+          Last I would like to thank my roommates for being supportive during the creation of this project.
+        </p>
       </div>
     </div>
   );

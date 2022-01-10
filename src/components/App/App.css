@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
 html,
 body,
 #react-root {
@@ -63,12 +65,14 @@ Cards
 }
 
 .card-header {
+  font-family: "Raleway", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 185px;
   max-height: 258px;
   background-color: #0d2bd3;
+  color: rgb(255, 235, 205);
 }
 
 .card-body {
@@ -115,6 +119,7 @@ Button
 -------------------------------------------------------------------------------- */
 
 .log-out-div {
+  font-family: "Raleway", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -141,6 +146,13 @@ Button
   justify-content: center;
 }
 
+.no-button {
+  font-family: "Raleway", sans-serif;
+}
+.yes-button {
+  font-family: "Raleway", sans-serif;
+}
+
 .btn_sizeMin {
   min-height: 50px;
   min-width: 100px;
@@ -161,8 +173,20 @@ Button
   text-decoration: none;
 }
 
+.no-button:hover {
+  background-color: #d6a400c9;
+}
+
+.yes-button:hover {
+  background-color: #0d2bd3;
+}
+
+.submit-track-button:hover {
+  background-color: #0d2bd3;
+}
+
 .button:hover {
-  background-color: #d6a400c9; /* Green */
+  background-color: #d6a400c9;
   color: white;
 }
 
@@ -201,22 +225,29 @@ Modals
   flex-wrap: wrap !important;
   justify-content: center !important;
   font-size: larger !important;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 .modal-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   font-size: medium;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 /* --------------------------------------------------------------------------------
 Components
 -------------------------------------------------------------------------------- */
 .header {
+  font-family: "Raleway", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.contact-header {
+  font-size: large;
+  font-style: bold;
+  font-family: "Raleway", sans-serif;
 }
 
 .description {

@@ -80,7 +80,9 @@ function MyPetsItem(props) {
             <Card.Img className="card-image" onClick={modalInfo} src={props.pet.photo} alt={props.pet.catdog} />
             <ListGroup variant="flush" >
               <ListGroup.Item><h4>Extra Information for this cute pet!</h4></ListGroup.Item>
-              <ListGroup.Item><p> {props.pet.description}</p>
+              <ListGroup.Item>
+              <center><Card.Text className="contact-header">Description</Card.Text></center>
+                <p> {props.pet.description}</p>
                 <p>Missing?: {props.pet.missing ? 'Yes' : 'No'}</p>
                 <Link to="/mypets"><Button className='button' onClick={toggleMissing}>{props.pet.missing ? 'Set as not missing' : 'Set as missing'}</Button></Link></ListGroup.Item>
             </ListGroup>
@@ -127,12 +129,14 @@ function MyPetsItem(props) {
                   <div><h1 className='modal-header'>Enter the last known date seen</h1>
                   <center><input type='text' placeholder='Date' value={newTrack.dates} onChange={handleNewDate} /></center>
                   </div>
-                <div className="submit-track-button">
+                <div>
+                  <center>
                   <Link to="/mypets">
                     <Button className="submit-track-button" onClick={addNewTrack}>
                       Enter New Sighting
                     </Button>
                   </Link>
+                  </center>
                 </div>
               </div>
               
@@ -149,19 +153,19 @@ function MyPetsItem(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title className="modalTitle">Confirmation</Modal.Title>
+            <Modal.Title className="modal-title">Confirmation</Modal.Title>
           </Modal.Header>
           <Modal.Body className="modalBody">
             Are you sure you want to delete {props.pet.name}?
           </Modal.Body>
           <Modal.Footer className="modalFooter">
             <Button
-              className="btn-secondary noButton"
+              className="no-button"
               onClick={handleClose}
             >
               No
             </Button>
-            <Link to="/mypets"><Button className='button' onClick={deleteButton}>
+            <Link to="/mypets"><Button className='yes-button' onClick={deleteButton}>
               Yes
             </Button></Link>
           </Modal.Footer>
