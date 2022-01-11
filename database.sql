@@ -5,30 +5,35 @@
 -- Otherwise you will have errors!
 --To be polished and updated at the end of the project
 CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL,
-    "bio" VARCHAR (1000)
+    id SERIAL PRIMARY KEY,
+    username character varying(80) NOT NULL UNIQUE,
+    password character varying(1000) NOT NULL,
+    bio character varying(1000)
 );
 
 
-CREATE TABLE "pets" (
-	"id" SERIAL PRIMARY KEY,
-	"name" VARCHAR (80) NOT NULL,
-	"catdog" VARCHAR (80) NOT NULL,
-	"missing" BOOLEAN,
-	"description" VARCHAR (1000) NOT NULL,
-	"neighborhood" VARCHAR (80) NOT NULL,
-	"photo" VARCHAR (80) NULL,
-	"missing_message" VARCHAR (500) NOT NULL,
-	"user_id" INT REFERENCES "user");
+CREATE TABLE pets (
+    id SERIAL PRIMARY KEY,
+    catdog character varying(80),
+    description character varying(1000) NOT NULL,
+    neighborhood character varying(80) NOT NULL,
+    photo character varying,
+    user_id integer REFERENCES "user"(id),
+    missing boolean,
+    name character varying,
+    missing_message character varying(500)
+);
+
 
 	
-	CREATE TABLE "track" (
-	"id" SERIAL PRIMARY KEY,
-	"pets_id" INT REFERENCES "pets",
-	"dates" VARCHAR (1000) NULL,
-	"location" VARCHAR (1000) NULL);
+	CREATE TABLE track (
+    id SERIAL PRIMARY KEY,
+    pets_id integer REFERENCES pets(id) ON DELETE CASCADE,
+    dates character varying(1000),
+    location character varying(1000),
+    user_id integer REFERENCES "user"(id)
+);
+
 
 INSERT INTO "user"  ("username", "password", "bio")
 VALUES ('Bob', 'asdf', 'Xolotl'),
