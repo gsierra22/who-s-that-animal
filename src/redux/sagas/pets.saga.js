@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 import store from '../store';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "FETCH_PETS" actions
 function* fetchPets(action) {
   //console.log('Petstest')
   try {
@@ -19,7 +19,7 @@ function* fetchPets(action) {
 
 function* fetchAll() {
   //console.log('testing123')
-  // get all movies from the DB
+  // get all pets from the DB
   try {
       const pets = yield axios.get(`/api/pets/all`);
       //console.log('get all:', pets);

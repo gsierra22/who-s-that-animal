@@ -92,7 +92,7 @@ router.put('/missing/:id', (req, res) => {
 });
 
 /**
- * DELEtE route
+ * DELETE route
  */
 router.delete('/delete/:id', (req, res) => {
   console.log("my pets delete", req.params.id)

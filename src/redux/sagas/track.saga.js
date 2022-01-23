@@ -2,11 +2,9 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 import store from '../store';
 
-// worker Saga: will be fired on "FETCH_USER" actions
-
 function* fetchProfile (action) {
   console.log('Track saga test', action.payload)
-  // get all movies from the DB
+  // get all tracks from the DB
   try {
       const profile = yield axios.get(`/api/track/profile/${action.payload.id}`);
       console.log('get profile data:', profile.data);
@@ -47,7 +45,7 @@ function *postTrack( action ){
 
 function* fetchTrackModal (action) {
   console.log('TrackModal saga test', action.payload)
-  // get all movies from the DB
+  // get all tracks from the DB
   try {
       const profile = yield axios.get(`/api/track/trackmodal/${action.payload.id}`);
       console.log('get trackModal data:', profile.data);

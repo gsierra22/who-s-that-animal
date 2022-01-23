@@ -4,6 +4,10 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 --To be polished and updated at the end of the project
+
+--First create Database 
+CREATE DATABASE "animal_app";
+
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username character varying(80) NOT NULL UNIQUE,
