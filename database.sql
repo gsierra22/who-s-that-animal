@@ -8,6 +8,8 @@
 --First create Database 
 CREATE DATABASE "animal_app";
 
+
+--Next create tables
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username character varying(80) NOT NULL UNIQUE,
