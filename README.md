@@ -44,7 +44,7 @@ https://github.com/gsierra22
 
 # Acknowledgement
 
-Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. I want to also thank my friends who were extremely supported during this development.
 
 # Support
 
