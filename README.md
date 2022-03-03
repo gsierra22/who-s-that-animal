@@ -1,5 +1,7 @@
 # Note
 
+I am returning to project and I am planning on adding additional features I originally had in mind.
+
 # Who's that Animal?
 
 Who's that animal is an app that allows users to create an account and input their pets information. Within the app, users can view all pets from all users and 'track' them by typing in the last date and location they saw the animal. A user can also mark their own individual pet as 'missing' which will cause it to appear in a separate missing tab. Users can also delete their pets or stop tracking pets whenever they desire.
