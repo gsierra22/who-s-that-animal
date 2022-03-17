@@ -40,6 +40,7 @@ Node.JS-Used to execute Javascript code in the backend
 Express- Node module framework used in this app
 Axios- Allows front and back end to communicate with one another
 Saga- Allow developer to make axios calls within one location
+Heroku- Deployed to Heroku so it can be tested online
 
 # Authors
 
