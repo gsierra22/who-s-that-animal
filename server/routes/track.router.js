@@ -8,9 +8,6 @@ const router = express.Router();
 
 //shows pets that you are tracking
 router.get("/tracker/:id", (req, res) => {
-  // console.log('req params', req.params)
-  // console.log('req query', req.query)
-  //console.log(req.query)
   const queryText = `SELECT "location", dates, pets.id FROM "pets"
  JOIN "track" ON "pets".id=track.pets_id
  WHERE "pets".id=$1`;
@@ -46,7 +43,6 @@ router.get("/profile/:id", (req, res) => {
 router.get("/trackmodal/:id", (req, res) => {
   console.log("req params here", req.params.id);
   // console.log('req query', req.query)
-  //console.log(req.query)
   const queryText = ` SELECT * FROM track
  JOIN "pets" ON track.pets_id=pets.id
  WHERE track.pets_id=$1`;

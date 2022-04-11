@@ -4,8 +4,6 @@ const router = express.Router();
 
 //get route for personal pets
 router.get("/mypets/:id", (req, res) => {
-  //console.log('hello')
-  //console.log(req.query)
   const queryText = ` SELECT * FROM "user"
   JOIN "pets" ON "user".id=pets.user_id
   WHERE "user".id=$1`;
@@ -22,12 +20,10 @@ router.get("/mypets/:id", (req, res) => {
 
 //get route for all pets
 router.get("/all", (req, res) => {
-  //console.log('arrive in router.get')
   const query = `SELECT * FROM pets`;
   pool
     .query(query)
     .then((result) => {
-      //console.log(result.rows)
       res.send(result.rows);
     })
     .catch((err) => {
