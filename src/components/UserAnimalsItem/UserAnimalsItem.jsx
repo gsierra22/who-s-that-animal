@@ -21,7 +21,7 @@ const handleShow = () => setShow(true);
 const handleProfileShow = () => setProfileShow(true);
 
 const modalInfo =() => {
-  dispatch ({type: 'FETCH_TRACKMODAL',
+  dispatch ({type: 'FETCH_TRACKMODAL', //get modal infromation
             payload:{id: props.track.pets_id}
   })
   handleProfileShow()
@@ -29,7 +29,7 @@ const modalInfo =() => {
 
 const deleteButton = () => {
   console.log("Delete Track:", props.track);
-  dispatch({ type: 'REMOVE_TRACK',
+  dispatch({ type: 'REMOVE_TRACK', //stop tracking a pet on your profile
               payload: props.track });
 };
 
@@ -42,18 +42,18 @@ let [newTrack, setTrack] = useState(
   });
 
 const addNewTrack = event => {
-  dispatch({ type: 'ADD_TRACK', payload: newTrack });
+  dispatch({ type: 'ADD_TRACK', payload: newTrack }); //add new track information to pets on list
 }
 
 const handleNewLocation = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+  //input new track location
   setTrack({...newTrack, location: event.target.value})
 }
 
 const handleNewDate = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+  //input new track date
   setTrack({...newTrack, dates: event.target.value})
 }
 
