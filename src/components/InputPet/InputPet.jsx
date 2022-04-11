@@ -6,7 +6,6 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 function InputPet() {
 const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const track=useSelector((store)=>store.trackReducer)
 
 
 

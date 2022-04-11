@@ -15,9 +15,9 @@ function UserAnimals(props) {
   const user = useSelector((store) => store.user);
   const track=useSelector((store)=>store.trackProfile)
 
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  
   useEffect(() => {
-    dispatch({ type: 'FETCH_PROFILE',
+    dispatch({ type: 'FETCH_PROFILE', //fetch pet's profile for track
                 payload: {id: user.id
                         }},
             );

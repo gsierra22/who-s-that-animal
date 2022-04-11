@@ -13,8 +13,8 @@ const user = useSelector((store) => store.user);
 const pets=useSelector((store)=>store.petsReducer);
  
   useEffect(() => {
-    dispatch({ type: 'FETCH_PETS',
-                payload: user.id });
+    dispatch({ type: 'FETCH_PETS', //display's user's personal pet
+                payload: user.id }); 
 }, []);
 
 const [show, setInputShow] = useState(false);
@@ -44,54 +44,54 @@ let [newPet, setPet] = useState(
 
 const handleNewName = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+  //input new pet name
   setPet({...newPet, name: event.target.value})
 }
 
 const handleNewCatdog = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet catdog
   setPet({...newPet, catdog: event.target.value})
 }
 
 const handleNewMissing = (event) => {
   console.log('missing happened', event.target.value);
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet missing status
   setPet({...newPet, missing: event.target.value})
 }
 
 const handleNewDescription = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet description
   setPet({...newPet, description: event.target.value})
 }
 
 const handleNewLocation = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet location
   setPet({...newPet, location: event.target.value})
 }
 
 const handleNewDate = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet date seen
   setPet({...newPet, dates: event.target.value})
 }
 
 const handleNewNeighborhood = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet name neighborhood
   setPet({...newPet, neighborhood: event.target.value})
 }
 
 const handleNewPhoto = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet photo
   setPet({...newPet, photo: event.target.value})
 }
 const handleNewMessage = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+   //input new pet message
   setPet({...newPet, missing_message: event.target.value})
 }
 

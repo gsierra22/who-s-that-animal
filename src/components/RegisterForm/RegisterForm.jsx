@@ -12,7 +12,7 @@ function RegisterForm() {
     event.preventDefault();
 
     dispatch({
-      type: 'REGISTER',
+      type: 'REGISTER',// registers new user
       payload: {
         username: username,
         password: password,

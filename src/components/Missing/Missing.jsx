@@ -10,13 +10,11 @@ function Missing(props) {
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const pets=useSelector((store)=>store.petsReducer);
   const missing=useSelector((store)=>store.missingReducer);
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
   
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_MISSING',
+    dispatch({ type: 'FETCH_MISSING', //displays pets listed as missing in database
               payload: user.id
                  });
 }, []);

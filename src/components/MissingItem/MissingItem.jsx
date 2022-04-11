@@ -35,18 +35,18 @@ let [newTrack, setTrack] = useState(
   });
 
 const addNewTrack = event => {
-  dispatch({ type: 'ADD_TRACK', payload: newTrack });
+  dispatch({ type: 'ADD_TRACK', payload: newTrack }); //adds new tracking info for pet
 }
 
 const handleNewLocation = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+  //input track location
   setTrack({...newTrack, location: event.target.value})
 }
 
 const handleNewDate = (event) => {
   console.log('event happened');
-  //Similar to in redux -- we dont want to get rid of the id field when we update name
+  //input track date
   setTrack({...newTrack, dates: event.target.value})
 }
 

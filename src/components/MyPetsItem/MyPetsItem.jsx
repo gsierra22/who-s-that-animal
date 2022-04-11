@@ -19,7 +19,7 @@ function MyPetsItem(props) {
 
   const modalInfo = () => {
     dispatch({
-      type: 'FETCH_TRACKMODAL',
+      type: 'FETCH_TRACKMODAL', //display pet information for modal
       payload: { id: props.pet.id }
     })
     handleProfileShow()
@@ -34,25 +34,25 @@ function MyPetsItem(props) {
     });
 
   const addNewTrack = event => {
-    dispatch({ type: 'ADD_TRACK', payload: newTrack });
+    dispatch({ type: 'ADD_TRACK', payload: newTrack }); //adds track info
   }
 
   const handleNewLocation = (event) => {
     console.log('event happened');
-    //Similar to in redux -- we dont want to get rid of the id field when we update name
+    // input location seen
     setTrack({ ...newTrack, location: event.target.value })
   }
 
   const handleNewDate = (event) => {
     console.log('event happened');
-    //Similar to in redux -- we dont want to get rid of the id field when we update name
+    //input date seen
     setTrack({ ...newTrack, dates: event.target.value })
   }
 
   const deleteButton = () => {
     console.log("Delete Pets:", props.pet.id);
     dispatch({
-      type: 'REMOVE_PETS',
+      type: 'REMOVE_PETS',// deletes pet
       payload: props.pet.id
     });
   };
@@ -63,7 +63,7 @@ function MyPetsItem(props) {
       id: props.pet.id,
       missing: !props.pet.missing
     }
-    dispatch({ type: 'UPDATE_PETS', payload: missingToSend })
+    dispatch({ type: 'UPDATE_PETS', payload: missingToSend })// toggles missing status
   }
 
   const isMissing = props.pet.missing;
