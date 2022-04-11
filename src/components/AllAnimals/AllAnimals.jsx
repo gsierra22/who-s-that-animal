@@ -6,13 +6,12 @@ import AllAnimalsItem from '../AllAnimalsItem/AllAnimalsItem';
 import "../AllAnimals/AllAnimals.css"
 
 function AllAnimals(props) {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const pets=useSelector((store)=>store.petsReducer)
   useEffect(() => {
-    dispatch({ type: 'FETCH_ALL',
+    dispatch({ type: 'FETCH_ALL', //Dispatch displays all animals in server
                 });
 }, []);
 
