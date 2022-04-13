@@ -30,12 +30,12 @@ function UserAnimals(props) {
       <h2 className="header">Welcome, {user.username}!</h2>
       <p className="description">Your ID is: {user.id}</p>
       <p className="description">{user.bio}</p>
-      <h3 className="header">Click on any pet!</h3>
       </Container>
       <br/>
 
       <Container className="container">
       <h3 className="header">Animals that you previously tracked!</h3>
+      <h3 className="header">Click on any pet!</h3>
       <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
       <br/>
       <div className="log-out-div">Log out<LogOutButton className="log-out-button"/></div>
