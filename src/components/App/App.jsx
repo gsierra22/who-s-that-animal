@@ -19,7 +19,6 @@ import MyPets from '../MyPets/MyPets';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import InputPet from '../InputPet/InputPet';
 import AllAnimals from '../AllAnimals/AllAnimals';
 import Missing from '../Missing/Missing';
 
@@ -62,14 +61,6 @@ function App() {
             path="/user"
           >
             <UserAnimals />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows MyPets else shows LoginPage
-            exact
-            path="/input"
-          >
-            <InputPet/>
           </ProtectedRoute>
 
           <ProtectedRoute

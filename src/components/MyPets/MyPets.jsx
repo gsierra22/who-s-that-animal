@@ -102,11 +102,11 @@ const handleNewMessage = (event) => {
     <Container className="container">
       <h2 className='header'>Pets for {user.username}!</h2>
       <p className='description'>{user.bio}</p>
-      <h3 className="header">Click on any pet!</h3>
       <div className="input-div"><Button className='input-button' onClick={handleInputShow}>Enter New Pet</Button></div>
       </Container>
       <br/>
       <Container className="container">
+      <h3 className="header">Click on any pet!</h3>
       <div className="petCard">{ pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}</div>
       <br/>
       <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
