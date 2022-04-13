@@ -30,6 +30,7 @@ function UserAnimals(props) {
       <h2 className="header">Welcome, {user.username}!</h2>
       <p className="description">Your ID is: {user.id}</p>
       <p className="description">{user.bio}</p>
+      <h3 className="header">Click on any pet!</h3>
       </Container>
       <br/>
 
