@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import AllAnimalsItem from '../AllAnimalsItem/AllAnimalsItem';
 import "../AllAnimals/AllAnimals.css"
 
