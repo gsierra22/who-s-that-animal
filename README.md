@@ -1,6 +1,6 @@
 # Note
 
-I am returning to project and I am planning on adding additional features I originally had in mind. Branch feature will be where I do this
+I will periodically return to this project time to time to make improvements or chagnes to code.
 
 # Who's that Animal?
 
