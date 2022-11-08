@@ -37,13 +37,13 @@ function MyPetsItem(props) {
     dispatch({ type: 'ADD_TRACK', payload: newTrack }); //adds track info
   }
 
-  const handleNewLocation = (event) => {
+  const handleNewLocation = (event) => {//handles location form input
     console.log('event happened');
     // input location seen
     setTrack({ ...newTrack, location: event.target.value })
   }
 
-  const handleNewDate = (event) => {
+  const handleNewDate = (event) => {//handles date form input
     console.log('event happened');
     //input date seen
     setTrack({ ...newTrack, dates: event.target.value })
@@ -66,7 +66,7 @@ function MyPetsItem(props) {
     dispatch({ type: 'UPDATE_PETS', payload: missingToSend })// toggles missing status
   }
 
-  const isMissing = props.pet.missing;
+  const isMissing = props.pet.missing;//checks pets missing status
 
   return (
     <div>
@@ -91,6 +91,7 @@ function MyPetsItem(props) {
             <Button className='button' onClick={handleShow}>Delete Pet</Button></Card.Footer>
         </Card>
 
+{/* Modal for pet profile */}
         <Modal
           show={profileShow}
           onHide={handleProfileClose}

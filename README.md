@@ -1,6 +1,6 @@
 # Note
 
-I am returning to project and I am planning on adding additional features I originally had in mind. Branch feature will be where I do this
+I will periodically return to this project time to time to make improvements or chagnes to code.
 
 # Who's that Animal?
 
@@ -30,17 +30,17 @@ Create a new database called `animal_app` and utilize the database.sql page to p
 
 # Built With
 
-Javascript- Main language used to create functionality
-CSS- Used in the styling
-Bootstrap- Used in the styling
-React- Javascript library used to create app and functionality
-Redux- Used to store and save information within app
-Postgres SQL- Used to create databases
-Node.JS-Used to execute Javascript code in the backend
-Express- Node module framework used in this app
-Axios- Allows front and back end to communicate with one another
-Saga- Allow developer to make axios calls within one location
-Heroku- Deployed to Heroku so it can be tested online
+- Javascript- Main language used to create functionality
+- CSS- Used in the styling
+- Bootstrap- Used in the styling
+- React- Javascript library used to create app and functionality
+- Redux- Used to store and manage state within app
+- Postgres SQL- Used to create databases
+- Node.JS-Used to execute Javascript code in the backend
+- Express- Node module framework used in this app
+- Axios- Allows front and back end to communicate with one another
+- Saga- Allow developer to make axios calls within one location
+- Heroku- Deployed to Heroku so it can be tested online
 
 # Authors
 
