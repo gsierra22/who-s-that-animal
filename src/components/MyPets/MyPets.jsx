@@ -19,7 +19,7 @@ const pets=useSelector((store)=>store.petsReducer);
 
 const [show, setInputShow] = useState(false);
   
-  const handleInputClose = () => setInputShow(false);
+  const handleInputClose = () => setInputShow(false);//new pet input modal toggle functions
   const handleInputShow = () => setInputShow(true);
 
 
@@ -39,57 +39,57 @@ let [newPet, setPet] = useState(
   });
 
   const addNewPet = event => {
-    dispatch({ type: 'ADD_PETS', payload: newPet });
+    dispatch({ type: 'ADD_PETS', payload: newPet });//button click dispatches new pet entry
 }
 
-const handleNewName = (event) => {
+const handleNewName = (event) => {//input for name form
   console.log('event happened');
   //input new pet name
   setPet({...newPet, name: event.target.value})
 }
 
-const handleNewCatdog = (event) => {
+const handleNewCatdog = (event) => {//input for catdog form
   console.log('event happened');
    //input new pet catdog
   setPet({...newPet, catdog: event.target.value})
 }
 
-const handleNewMissing = (event) => {
+const handleNewMissing = (event) => {//input for missing form
   console.log('missing happened', event.target.value);
    //input new pet missing status
   setPet({...newPet, missing: event.target.value})
 }
 
-const handleNewDescription = (event) => {
+const handleNewDescription = (event) => {//input for description form
   console.log('event happened');
    //input new pet description
   setPet({...newPet, description: event.target.value})
 }
 
-const handleNewLocation = (event) => {
+const handleNewLocation = (event) => {//input for location form
   console.log('event happened');
    //input new pet location
   setPet({...newPet, location: event.target.value})
 }
 
-const handleNewDate = (event) => {
+const handleNewDate = (event) => {//input for date form
   console.log('event happened');
    //input new pet date seen
   setPet({...newPet, dates: event.target.value})
 }
 
-const handleNewNeighborhood = (event) => {
+const handleNewNeighborhood = (event) => {//input for neighborhood form
   console.log('event happened');
    //input new pet name neighborhood
   setPet({...newPet, neighborhood: event.target.value})
 }
 
-const handleNewPhoto = (event) => {
+const handleNewPhoto = (event) => {//input for photo form
   console.log('event happened');
    //input new pet photo
   setPet({...newPet, photo: event.target.value})
 }
-const handleNewMessage = (event) => {
+const handleNewMessage = (event) => {//input for message form
   console.log('event happened');
    //input new pet message
   setPet({...newPet, missing_message: event.target.value})
@@ -99,18 +99,23 @@ const handleNewMessage = (event) => {
 
   return (
     <div>
+      {/* input Container */}
     <Container className="container">
       <h2 className='header'>Pets for {user.username}!</h2>
       <p className='description'>{user.bio}</p>
       <div className="input-div"><Button className='input-button' onClick={handleInputShow}>Enter New Pet</Button></div>
       </Container>
+
+      {/* pet profile container */}
       <br/>
       <Container className="container">
+      <h3 className="header">Click on any pet!</h3>
       <div className="petCard">{ pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}</div>
       <br/>
       <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
       </Container>
 
+{/* modal for new pet input */}
       <Modal
         show={show}
         onHide={handleInputClose}

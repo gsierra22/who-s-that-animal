@@ -5,8 +5,6 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
 import { DataRowMessage } from 'pg-protocol/dist/messages';
 import"../UserAnimals/UserAnimals.css"
-import Card from 'react-bootstrap/Card'
-import trackProfile from '../../redux/reducers/profile.reducer';
 import { Container } from 'react-bootstrap';
 
 function UserAnimals(props) {
@@ -35,6 +33,7 @@ function UserAnimals(props) {
 
       <Container className="container">
       <h3 className="header">Animals that you previously tracked!</h3>
+      <h3 className="header">Click on any pet!</h3>
       <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
       <br/>
       <div className="log-out-div">Log out<LogOutButton className="log-out-button"/></div>

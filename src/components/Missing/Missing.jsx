@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import MissingItem from '../MissingItem/MissingItem';
-import petsReducer from '../../redux/reducers/pets.reducer';
 import "../Missing/Missing.css"
 
 function Missing(props) {
@@ -24,6 +22,7 @@ function Missing(props) {
   return (
     <div className="container">
       <h2 className="header">Missing Pets </h2>
+      <h3 className="header">Click on any pet!</h3>
         <div className="missingCard">{missing.map(( missing )=>(  <MissingItem missing={missing}/>) )}</div>
         <br/>
         <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
