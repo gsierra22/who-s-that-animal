@@ -34,7 +34,6 @@ router.get("/all", (req, res) => {
 
 //post route for new pets
 router.post("/", (req, res) => {
-  //console.log(req.body);
   // RETURNING "id" will give us back the id of the created pet
   const insertPetQuery = `INSERT INTO "pets" (name, catdog, missing, description, neighborhood, photo, missing_message, user_id) 
   VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING "id";
@@ -53,7 +52,6 @@ router.post("/", (req, res) => {
       req.body.user_id,
     ])
     .then((result) => {
-      //console.log("New Pet Id:", result.rows[0].id)
       const createdPetId = result.rows[0].id;
 
       // Now handle the track reference

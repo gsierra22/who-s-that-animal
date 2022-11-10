@@ -4,13 +4,11 @@ const router = express.Router();
 
 //get route for missing pets
 router.get("/", (req, res) => {
-  console.log("arrive in router.get", req.body);
   const query = `SELECT * FROM pets
     WHERE pets.missing=true;`;
   pool
     .query(query)
     .then((result) => {
-      //console.log(result.rows)
       res.send(result.rows);
     })
     .catch((err) => {
