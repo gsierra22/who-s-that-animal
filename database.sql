@@ -24,7 +24,7 @@ CREATE TABLE pets (
     description character varying(1000) NOT NULL,
     neighborhood character varying(80) NOT NULL,
     photo character varying,
-    user_id integer REFERENCES "user"(id),
+    user_id integer REFERENCES "user"(id) ON DELETE CASCADE,
     missing boolean,
     name character varying,
     missing_message character varying(500)
