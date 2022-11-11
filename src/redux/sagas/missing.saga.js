@@ -7,7 +7,6 @@ function* fetchMissing(action) {
   console.log('Track saga test')
   // get all missing pets from the DB
   try {
-    //console.log(action.payload)
       const missing = yield axios.get(`/api/missing`);
       console.log('get track:', missing.data);
       yield put({ type: 'SET_MISSING', payload: missing.data });
