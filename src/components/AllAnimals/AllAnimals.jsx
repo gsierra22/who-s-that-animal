@@ -28,5 +28,4 @@ function AllAnimals(props) {
   );
 }
 
-// this allows us to use <App /> in index.js
 export default AllAnimals;
