@@ -20,13 +20,11 @@ function Nav() {
   const myPetsIcon= <FontAwesomeIcon icon={faDog}/>
   const allAnimalsIcon= <FontAwesomeIcon icon={faListAlt}/>
   const missingIcon= <FontAwesomeIcon icon={faExclamationTriangle}/>
-  const pawIcon= <FontAwesomeIcon icon={faPaw}/>
   
 
   return (
     <div className="nav">
       <Link to="/home">
-        {/* <h2 className="nav-title">Who's that animal? {pawIcon}</h2> */}
         <img className="app-logo" src={appLogo}/>
       </Link>
       <div>
