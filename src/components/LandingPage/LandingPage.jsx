@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
@@ -27,9 +28,9 @@ function LandingPage() {
 
           <center>
             <h4>Already a Member?</h4>
-            <button className="yes-button" onClick={onLogin}>
+            <Button className="yes-button" onClick={onLogin}>
               Login
-            </button>
+            </Button>
           </center>
         </div>
       </div>
