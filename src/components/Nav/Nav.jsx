@@ -60,11 +60,9 @@ function Nav() {
               {missingIcon}
               <p className='NavText'>Missing Pets</p>
             </Link>
-
-            <LogOutButton className="navLink" />
+            <LogOutButton className="navLink"/>
           </>
         )}
-
         <Link className="navLink" to="/about">
         {aboutIcon}
         <p className='NavText'>About</p>
