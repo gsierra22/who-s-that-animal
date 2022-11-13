@@ -43,18 +43,22 @@ function Nav() {
           <>
             <Link className="navLink" to="/user">
               {homeIcon}
+              <p className='NavText'>Home</p>
             </Link>
 
             <Link className="navLink" to="/mypets">
               {myPetsIcon}
+              <p className='NavText'>My Pets</p>
             </Link>
 
             <Link className="navLink" to="/all">
               {allAnimalsIcon}
+              <p className='NavText'>All Pets</p>
             </Link>
 
             <Link className="navLink" to="/missing">
               {missingIcon}
+              <p className='NavText'>Missing Pets</p>
             </Link>
 
             <LogOutButton className="navLink" />
@@ -63,6 +67,7 @@ function Nav() {
 
         <Link className="navLink" to="/about">
         {aboutIcon}
+        <p className='NavText'>About</p>
         </Link>
       </div>
     </div>
