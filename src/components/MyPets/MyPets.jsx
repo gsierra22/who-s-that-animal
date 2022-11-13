@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Button, Container, Card, Modal, ListGroup, ListGroupItem } from "react-bootstrap";
@@ -112,7 +111,6 @@ const handleNewMessage = (event) => {//input for message form
       <h3 className="header">Click on any pet!</h3>
       <div className="petCard">{ pets.map(( pet )=>( <MyPetsItem pet={pet}/>) )}</div>
       <br/>
-      <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
       </Container>
 
 {/* modal for new pet input */}

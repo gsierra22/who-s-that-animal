@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import UserAnimalsItem from '../UserAnimalsItem/UserAnimalsItem';
@@ -36,7 +35,6 @@ function UserAnimals(props) {
       <h3 className="header">Click on any pet!</h3>
       <div className="trackCard">{ track.map(( track)=>( <UserAnimalsItem track={track}/>) )}</div>
       <br/>
-      <div className="log-out-div">Log out<LogOutButton className="log-out-button"/></div>
       </Container>
       </div>
     

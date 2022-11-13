@@ -1,5 +1,4 @@
 import React, { useEffect,useState } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Button, Modal,Table, ListGroup} from "react-bootstrap";

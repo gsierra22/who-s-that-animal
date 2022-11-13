@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import MissingItem from '../MissingItem/MissingItem';
 import "../Missing/Missing.css"
@@ -25,7 +24,6 @@ function Missing(props) {
       <h3 className="header">Click on any pet!</h3>
         <div className="missingCard">{missing.map(( missing )=>(  <MissingItem missing={missing}/>) )}</div>
         <br/>
-        <div className="log-out-div">Log Out<LogOutButton className="log-out-button" /></div>
     </div>
     
 
