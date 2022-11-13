@@ -35,14 +35,16 @@ function Nav() {
             Login / Register
           </Link>
         }
+        
+        <Link className="navLink" to="/home">
+              {homeIcon}
+              <p className='NavText'>Home</p>
+            </Link>
 
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
-              {homeIcon}
-              <p className='NavText'>Home</p>
-            </Link>
+
 
             <Link className="navLink" to="/mypets">
               {myPetsIcon}
@@ -61,6 +63,7 @@ function Nav() {
             <LogOutButton className="navLink"/>
           </>
         )}
+
         <Link className="navLink" to="/about">
         {aboutIcon}
         <p className='NavText'>About</p>
