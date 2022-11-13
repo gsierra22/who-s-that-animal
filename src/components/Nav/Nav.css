@@ -46,7 +46,9 @@
   max-width: 75px;
   max-height: 75px;
   margin-left: 15px;
+}
 
-  /* max-height: 100px;
-  margin: 84px 0px 0px; */
+.NavText{
+  font-size: medium;
+  margin-bottom: 0px;
 }
